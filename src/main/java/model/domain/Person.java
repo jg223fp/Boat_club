@@ -33,7 +33,7 @@ public class Person {
     /**
     * @generated
     */
-    private String setFirstName(String firstName) {
+    private void setFirstName(String firstName) {
         this.firstName = firstName;
     }
     
@@ -47,7 +47,7 @@ public class Person {
     /**
     * @generated
     */
-    private String setLastName(String lastName) {
+    private void setLastName(String lastName) {
         this.lastName = lastName;
     }
     
@@ -61,49 +61,12 @@ public class Person {
     /**
     * @generated
     */
-    private Integer setPersonalNumber(Integer personalNumber) {
+    private void setPersonalNumber(Integer personalNumber) {
         this.personalNumber = personalNumber;
     }
     
     
 
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public setFirstName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getFirstName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setLastName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getLastName() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public setPersonalNumber() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getPersonalNumber() {
-        //TODO
-    }
+   
     
 }
