@@ -3,13 +3,13 @@ package controller;
 /**
  * Responsible for staring the application.
  */
-public class App {
+// public class App {
   /**
    * Application starting point.
 
    * @param args command line arguments.
    */
-  public static void main(String[] args) {
+  /**public static void main(String[] args) {
     // adapt to start the application in your way
     model.Simple m = new model.Simple();
     Simple c = new Simple();
@@ -18,3 +18,4 @@ public class App {
     c.doSomethingSimple(m, v);
   }
 }
+*/

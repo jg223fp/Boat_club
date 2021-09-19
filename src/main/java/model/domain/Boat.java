@@ -1,64 +1,33 @@
 package model.domain;
 
-/**
- * @generated
- */
 public class Boat {
 
-    /**
-     * @generated
-     */
     private String name;
-
-    /**
-     * @generated
-     */
-    private BoatType boatType;
-
-    /**
-     * @generated
-     */
-    private Real length;
-
-    /**
-     * @generated
-     */
+    private Enum boatType;
+    private float length;
+    
+    
     private String getName() {
         return this.name;
     }
 
-    /**
-     * @generated
-     */
-    private String setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @generated
-     */
-    private BoatType getBoatType() {
+    private Enum getBoatType() {
         return this.boatType;
     }
 
-    /**
-     * @generated
-     */
-    private BoatType setBoatType(BoatType boatType) {
+    private void setBoatType(Enum boatType) {
         this.boatType = boatType;
     }
 
-    /**
-     * @generated
-     */
-    private Real getLength() {
+    private float getLength() {
         return this.length;
     }
 
-    /**
-     * @generated
-     */
-    private Real setLength(Real length) {
+    private void setLength(float length) {
         this.length = length;
     }
 }
