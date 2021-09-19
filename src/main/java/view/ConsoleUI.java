@@ -1,54 +1,11 @@
 package view;
+import java.util.Scanner;
 
-
-/**
-* @generated
-*/
 public class ConsoleUI {
     
-    /**
-    * @generated
-    */
-    private scanner console;
-    
-    /**
-    * @generated
-    */
-    private invalid userChoice;
-    
-    
-    
-    /**
-    * @generated
-    */
-    private scanner getConsole() {
-        return this.console;
-    }
-    
-    /**
-    * @generated
-    */
-    private scanner setConsole(scanner console) {
-        this.console = console;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid getUserChoice() {
-        return this.userChoice;
-    }
-    
-    /**
-    * @generated
-    */
-    private invalid setUserChoice(invalid userChoice) {
-        this.userChoice = userChoice;
-    }
-    
-    
-
-    //                          Operations                                  
+    private Scanner console;
+    private int userChoice;
+                             
     
     /**
     * @generated
@@ -59,85 +16,88 @@ public class ConsoleUI {
     /**
     * @generated
     */
-    public printMainMenu() {
+    public void printMainMenu() {
         //TODO
     }
     /**
     * @generated
     */
-    public collectUserChoice() {
+    public void collectUserChoice() {
         //TODO
     }
     /**
     * @generated
     */
-    public collectString() {
+    public String collectString() {
+        String s = "Ost";
+        return s;
+    }
+    /**
+    * @generated
+    */
+    public int collectInteger() {
+        int i = 9;
+        return i;
+    }
+    /**
+    * @generated
+    */
+    public Double collectFloat() {
+        Double f = 12.3;
+        return f;
+    }
+    /**
+    * @generated
+    */
+    public void printMember() {
         //TODO
     }
     /**
     * @generated
     */
-    public collectInteger() {
+    public void showListOptions() {
         //TODO
     }
     /**
     * @generated
     */
-    public collectReal() {
+    public void printVerboseList() {
         //TODO
     }
     /**
     * @generated
     */
-    public printMember() {
+    public void printCompactList() {
         //TODO
     }
     /**
     * @generated
     */
-    public showListOptions() {
+    public void showMemberOptions() {
         //TODO
     }
     /**
     * @generated
     */
-    public printVerboseList() {
+    public void showMemberMenu() {
         //TODO
     }
     /**
     * @generated
     */
-    public printCompactList() {
+    public void registerBoat() {
         //TODO
     }
     /**
     * @generated
     */
-    public showMemberOptions() {
+    public void showBoats() {
         //TODO
     }
     /**
     * @generated
     */
-    public showMemberMenu() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public registerBoat() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public showBoats() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public showBoatOptions() {
+    public void showBoatOptions() {
         //TODO
     }
     

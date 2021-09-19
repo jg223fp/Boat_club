@@ -8,9 +8,9 @@ public class MemberDatabase {
     // Operations
 
     /**
-    * @generated
+    * 
     */
-    public loadData() {
+    public void loadData() {
         //TODO
     }
 
