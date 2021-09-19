@@ -1,90 +1,37 @@
 package model.domain;
+import java.util.ArrayList;
 
-
-/**
-* @generated
-*/
 public class MemberRegistry {
     
-    /**
-    * @generated
-    */
-    private ArrayList members;
+    private ArrayList<Member> members;
     
     
-    /**
-    * @generated
-    */
-    private Set<Member> member;
-    
-    
-    /**
-    * @generated
-    */
-    private ArrayList getMembers() {
-        return this.members;
-    }
-    
-    /**
-    * @generated
-    */
-    private ArrayList setMembers(ArrayList members) {
-        this.members = members;
-    }
-    
-    
-    /**
-    * @generated
-    */
-    public Member getMember() {
-        return this.member;
-    }
-    
-    /**
-    * @generated
-    */
-    public Member setMember(Member member) {
-        this.member = member;
-    }
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
     public MemberRegistry() {
         //TODO
     }
-    /**
-    * @generated
-    */
-    public addMember() {
-        //TODO
+    
+    public Member addMember(String firstName, String lastName, int personalNumber) {
+        int memberID = generateMemberID();
+        Member m = new Member(firstName, lastName, personalNumber, memberID);
+        return m;
     }
-    /**
-    * @generated
-    */
-    public deleteMember() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getMemberList() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    public getMember() {
-        //TODO
-    }
-    /**
-    * @generated
-    */
-    private generateMemberID() {
-        //TODO
+
+    public void deleteMember(Member m) {
+        members.remove(m);
     }
     
+    public ArrayList<Member> getMemberList() {
+        return members;
+    }
+    
+    public Member getMember(int index) {
+        Member m = members.get(index);
+        return m;
+    }
+    
+    private int generateMemberID() {
+        int memberID = members.size();
+        memberID++;
+        return memberID;
+    } 
 }
