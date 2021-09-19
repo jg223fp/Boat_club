@@ -9,19 +9,17 @@ public class Person {
     /**
     * @generated
     */
-    private String firstName;
+    protected String firstName;
     
     /**
     * @generated
     */
-    private String lastName;
+    protected String lastName;
     
     /**
     * @generated
     */
-    private Integer personalNumber;
-    
-    
+    protected Integer personalNumber;
     
     /**
     * @generated
