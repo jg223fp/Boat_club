@@ -5,13 +5,13 @@ package model.persistence;
  */
 public class MemberDatabase {
 
-    // Operations
+  // Operations
 
-    /**
-    * 
-    */
-    public void loadData() {
-        //TODO
-    }
+  /**
+  * 
+  */
+  public void loadData() {
+      //TODO
+  }
 
 }

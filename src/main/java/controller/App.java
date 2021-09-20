@@ -6,9 +6,9 @@ package controller;
 */
 public class App {
     
-    /**
-    * @generated
-    */
-    private String appName;
+  /**
+  * @generated
+  */
+  private String appName;
 
 }
