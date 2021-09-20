@@ -3,36 +3,39 @@ package model.domain;
 import java.util.ArrayList;
 
 /**
-* @generated
+* A class representing a member.
 */
 public class Member extends Person {
 
-  private Integer  memberID;
+  private Integer  memberId;
   private ArrayList<Boat> boats;
 
-  public Member(String firstName, String lastName, int personalNumber, int memberID) {
+  /**
+  * Class constructor.
+  */
+  public Member(String firstName, String lastName, int personalNumber, int memberId) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.personalNumber = personalNumber;
-    this.memberID = memberID;
+    this.memberId = memberId;
   }
   
   /**
-  * @generated
+  * Returns member ID.
   */
-  private Integer getMemberID() {
-    return this.memberID;
+  private Integer getMemberId() {
+    return this.memberId;
   }
   
   /**
-  * @generated
+  * Sets the member ID.
   */
-  private void setMemberID(Integer memberID) {
-    this.memberID = memberID;
+  private void setMemberId(Integer memberId) {
+    this.memberId = memberId;
   }
   
   /**
-  * @generated
+  * Returns an ArrayList of the members boats.
   */
   public ArrayList<Boat> getBoatList() {
     return boats;

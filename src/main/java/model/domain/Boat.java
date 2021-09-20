@@ -1,5 +1,8 @@
 package model.domain;
 
+/**
+* A class representing a boat.
+*/
 public class Boat {
     
   private String name;
@@ -7,41 +10,42 @@ public class Boat {
   private float length;
   
   /**
-  * Returns members name.
+  * Returns the name of the boat.
   */
   private String getName() {
     return this.name;
   }
 
   /**
-  * @generated
+  * Sets the name of the boat.
   */
   private void setName(String name) {
     this.name = name;
   }
 
   /**
-  * @generated
+  * Returns the boat type.
   */
   private Enum getBoatType() {
     return this.boatType;
   }
+
   /**
-  * @generated
+  * Sets the boat type.
   */
   private void setBoatType(Enum boatType) {
     this.boatType = boatType;
   }
 
   /**
-  * @generated
+  * Returns the lenght of the boat.
   */
   private float getLength() {
     return this.length;
   }
 
   /**
-  * @generated
+  * Sets the lenght of the boat.
   */
   private void setLength(float length) {
     this.length = length;

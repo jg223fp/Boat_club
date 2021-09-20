@@ -1,6 +1,10 @@
 package view;
+
 import java.util.Scanner;
 
+/**
+* A class that interacts with the user of the app via text.
+*/
 public class ConsoleUI {
   
   private Scanner console;
@@ -8,94 +12,108 @@ public class ConsoleUI {
                             
   
   /**
-  * @generated
+  * Class constructor.
   */
   public ConsoleUI() {
       //TODO
   }
+
   /**
-  * @generated
+  * Prints the main menu.
   */
   public void printMainMenu() {
       //TODO
   }
+
   /**
-  * @generated
+  * Collects the input from the user.
   */
   public void collectUserChoice() {
       //TODO
   }
+
   /**
-  * @generated
+  * collects string.
   */
   public String collectString() {
     String s = "Ost";
     return s;
   }
+
   /**
-  * @generated
+  * collect int.
   */
   public int collectInteger() {
     int i = 9;
     return i;
   }
+
   /**
-  * @generated
+  * collects float.
   */
   public Double collectFloat() {
     Double f = 12.3;
     return f;
   }
+
   /**
-  * @generated
+  * Prints information from a member object.
   */
   public void printMember() {
       //TODO
   }
+
   /**
-  * @generated
+  * Prints a menu of the member listing alternatives.
   */
   public void showListOptions() {
       //TODO
   }
+
   /**
-  * @generated
+  * Prints a verbose list of the members.
   */
   public void printVerboseList() {
       //TODO
   }
+
   /**
-  * @generated
+  * Prints a compact list of the members.
   */
   public void printCompactList() {
       //TODO
   }
+
   /**
-  * @generated
+  * Prints a menu of the available actions for a member object.
   */
   public void showMemberOptions() {
       //TODO
   }
+
   /**
-  * @generated
+  * Prints the information of a member.
   */
   public void showMemberMenu() {
       //TODO
   }
+
   /**
-  * @generated
+  * Prints the register new boat menu.
   */
   public void registerBoat() {
       //TODO
   }
+
   /**
-  * @generated
+  * Prints the boats from a member object.
   */
   public void showBoats() {
       //TODO
   }
+  
   /**
-  * @generated
+  * Prints the available actions for a boat object.
   */
   public void showBoatOptions() {
       //TODO

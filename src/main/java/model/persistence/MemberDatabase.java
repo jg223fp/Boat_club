@@ -1,14 +1,12 @@
 package model.persistence;
 
 /**
- * @generated
+ * A class that handles saving and loading.
  */
 public class MemberDatabase {
 
-  // Operations
-
   /**
-  * 
+  * Loads stored data. 
   */
   public void loadData() {
       //TODO

@@ -2,56 +2,61 @@ package controller;
 
 
 /**
-* @generated
+* "Main" class. It is in this class the program is running
 */
 public class User {
-  
-//                          Operations                                  
-  
+                                   
   /**
-  * @generated
+  * Initiates the application.
   */
   public void runApp() {
       //TODO
   }
+
   /**
-  * @generated
+  * Starts the process of creating a new member.
   */
   private void createMember() {
       //TODO
   }
+
   /**
-  * @generated
+  * Displays memberlist.
   */
   private void showMemberList() {
       //TODO
   }
+
   /**
-  * @generated
+  * Change a member objects information.
   */
   private void changeMember() {
       //TODO
   }
+
   /**
-  * @generated
+  * Starts the process of removing a member.
   */
   private void removeMember() {
       //TODO
   }
+
   /**
-  * @generated
+  * Starts the process of register a new boat on a member.
   */
   private void registerBoat() {
       //TODO
   }
+
   /**
-  * @generated
+  * Starts the process of changing boat information.
   */
   private void changeBoat() {
       //TODO
   }
+
   /**
-  * @generated
+  * Starts the process of removing a boat.
   */
   private void removeBoat() {
       //TODO

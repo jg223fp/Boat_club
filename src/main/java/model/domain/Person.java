@@ -2,69 +2,53 @@ package model.domain;
 
 
 /**
-* @generated
+* A class repretsenting a person.
 */
 public class Person {
     
-  /**
-  * @generated
-  */
   protected String firstName;
-  
-  /**
-  * @generated
-  */
   protected String lastName;
-  
-  /**
-  * @generated
-  */
   protected Integer personalNumber;
   
   /**
-  * @generated
+  * Returns the name of the person.
   */
   private String getFirstName() {
     return this.firstName;
   }
   
   /**
-  * @generated
+  * Sets the first name of the person.
   */
   private void setFirstName(String firstName) {
     this.firstName = firstName;
   }
   
   /**
-  * @generated
+  * Returns the last name of the person.
   */
   private String getLastName() {
     return this.lastName;
   }
   
   /**
-  * @generated
+  * Sets the last name of the person.
   */
   private void setLastName(String lastName) {
     this.lastName = lastName;
   }
   
   /**
-  * @generated
+  * Returns the personal number of the person.
   */
   private Integer getPersonalNumber() {
     return this.personalNumber;
   }
   
   /**
-  * @generated
+  * Sets the personal number of the person.
   */
   private void setPersonalNumber(Integer personalNumber) {
     this.personalNumber = personalNumber;
-  }
-    
-    
-
-   
-    
+  }   
 }
