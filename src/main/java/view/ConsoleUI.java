@@ -60,17 +60,35 @@ public class ConsoleUI {
   /**
   * collects string.
   */
-  public String collectString() {
-    String s = "Ost";
-    return s;
+  public String collectString(String type) {
+    String input = null;
+    while (input == null) {
+        try {
+            System.out.format("\nPlease enter a%s: ", type);
+            input = console.nextLine();
+
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please try again.");
+        }
+    }
+    return input;
   }
 
   /**
   * collect int.
   */
-  public int collectInteger() {
-    int i = 9;
-    return i;
+  public int collectInteger(String type) {
+    int input = -1;
+    while (input == -1) {
+        try {
+            System.out.format("\nPlease enter %s: ", type);
+            input = Integer.parseInt(console.nextLine());
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please try again.");
+        }
+    }
+    return input;
   }
 
   /**
@@ -144,4 +162,10 @@ public class ConsoleUI {
       //TODO
   }
     
+  /**
+  * Prints error message.
+  */
+  public void printError(String e) {
+    System.out.println("Sorry there was an error. "+e);
+  }
 }

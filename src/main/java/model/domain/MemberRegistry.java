@@ -13,7 +13,7 @@ public class MemberRegistry {
   * Class constructor.
   */
   public MemberRegistry() {
-      //TODO
+      this.members = new ArrayList<Member>();
   }
   
   /**

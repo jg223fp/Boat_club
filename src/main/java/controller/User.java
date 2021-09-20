@@ -1,6 +1,6 @@
 package controller;
 
-
+import model.domain.Member;
 import model.domain.MemberRegistry;
 import view.ConsoleUI;
 
@@ -33,7 +33,7 @@ public class User {
           // SAVE MEMBERS HERE!!!!   
           break;        
         case 1:
-          createMember();
+          createMember(mReg);
           break;
         case 2:
           showVerboseMemberList();
@@ -48,8 +48,18 @@ public class User {
   /**
   * Starts the process of creating a new member.
   */
-  private void createMember() {
-      //TODO
+  private void createMember(MemberRegistry mReg) {
+    ConsoleUI ui = new ConsoleUI();
+    String firstName = ui.collectString("first name");
+    String lastName = ui.collectString("last name");
+    int personalNumber = ui.collectInteger("personal number");
+
+    try {
+      Member m = mReg.addMember(firstName, lastName, personalNumber);
+    
+    } catch (NullPointerException e) {
+      ui.printError(e);
+    }
   }
 
   /**
