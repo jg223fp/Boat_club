@@ -1,10 +1,17 @@
 package controller;
 
+import java.util.ArrayList;
+
+import model.domain.Member;
 
 /**
 * "Main" class. It is in this class the program is running
 */
 public class User {
+
+  public User(ArrayList<Member> mReg) {
+    
+  }
                                    
   /**
   * Initiates the application.
