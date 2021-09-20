@@ -9,7 +9,7 @@ public class App {
 
   public static void main(String[] args) {
 
-    String appName = "Boatclub system v1.0";
+    String appName = "The jolly pirate";
 
     MemberRegistry mReg = new MemberRegistry();
     User user = new User();

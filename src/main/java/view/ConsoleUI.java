@@ -24,7 +24,7 @@ public class ConsoleUI {
   */
   public void printHeader(String appName) {
     System.out.println("+---------------------------------+");
-    System.out.format("|    Welcome to the %s     |/n", appName);
+    System.out.format("|    Welcome to the %s     |\n", appName);
     System.out.println("+---------------------------------+");
   }
 

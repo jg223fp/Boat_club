@@ -1,8 +1,7 @@
 package controller;
 
-import java.util.ArrayList;
 
-import model.domain.Member;
+import model.domain.MemberRegistry;
 import view.ConsoleUI;
 
 /**
@@ -17,7 +16,7 @@ public class User {
   /**
   * Initiates the application.
   */
-  public void runApp(ArrayList<Member> mReg, String appName) {
+  public void runApp(MemberRegistry mReg, String appName) {
 
     ConsoleUI ui = new ConsoleUI();
     ui.printHeader(appName);          // present app name
@@ -37,8 +36,11 @@ public class User {
           createMember();
           break;
         case 2:
-          showMemberList();
-          break;  
+          showVerboseMemberList();
+          break; 
+        case 3:
+          showCompactMemberList();
+          break;   
       }
     } 
   }
@@ -51,11 +53,18 @@ public class User {
   }
 
   /**
-  * Displays memberlist.
+  * Displays a verbose memberlist.
   */
-  private void showMemberList() {
+  private void showVerboseMemberList() {
       //TODO
   }
+
+  /**
+  * Displays a compact memberlist.
+  */
+  private void showCompactMemberList() {
+    //TODO
+}
 
   /**
   * Change a member objects information.
