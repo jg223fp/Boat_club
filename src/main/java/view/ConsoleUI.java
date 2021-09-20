@@ -8,28 +8,53 @@ import java.util.Scanner;
 public class ConsoleUI {
   
   private Scanner console;
-  private int userChoice;
+  //private int userChoice;
                             
   
   /**
   * Class constructor.
   */
   public ConsoleUI() {
-      //TODO
+      this.console = new Scanner(System.in);
+      //this.userChoice = -1;
+  }
+
+  /**
+  * Prints app header.
+  */
+  public void printHeader(String appName) {
+    System.out.println("+---------------------------------+");
+    System.out.format("|    Welcome to the %s     |/n", appName);
+    System.out.println("+---------------------------------+");
   }
 
   /**
   * Prints the main menu.
   */
   public void printMainMenu() {
-      //TODO
+    System.out.println("\nMain Menu");
+    System.out.println("1. Create new member");
+    System.out.println("2. Show verbose member list");
+    System.out.println("3. Show compact member list");
+    System.out.println("0. Exit application");
   }
 
   /**
   * Collects the input from the user.
   */
-  public void collectUserChoice() {
-      //TODO
+  public int collectUserChoice() {
+    int userChoice = -1;
+    // 0-5 because of main menu size.
+    while (userChoice < 0 || userChoice > 3) {
+        try {
+            System.out.print("\nPlease enter a selection: ");
+            userChoice = Integer.parseInt(console.nextLine());
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid selection. Pleae try again.");
+        }
+    }
+    return userChoice;
   }
 
   /**
