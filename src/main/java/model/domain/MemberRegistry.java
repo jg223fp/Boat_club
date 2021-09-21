@@ -19,7 +19,7 @@ public class MemberRegistry {
   /**
   * Creates a new member and returns the member object.
   */
-  public Member addMember(String firstName, String lastName, double personalNumber) {
+  public Member addMember(String firstName, String lastName, Long personalNumber) {
     int memberId = generateMemberId();
     Member m = new Member(firstName, lastName, personalNumber, memberId);
     members.add(m);
