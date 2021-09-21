@@ -136,7 +136,7 @@ public class ConsoleUI {
   /**
   * Prints information from a member object.
   */
-  public void printMember() {
+  public void printMember(MemberRegistry mReg, int memberId) {
       //TODO
   }
 
@@ -175,8 +175,11 @@ public class ConsoleUI {
   /**
   * Prints a menu of the available actions for a member object.
   */
-  public void showMemberOptions(MemberRegistry mReg, int memberId ) {
-      //TODO
+  public void showMemberOptions() {
+    System.out.println("\n1. View member information");
+    System.out.println("2. Change member information");
+    System.out.println("3. Delete member");
+    System.out.println("0. Back");
   }
 
   /**

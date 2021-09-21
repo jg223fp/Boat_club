@@ -84,9 +84,23 @@ public class User {
   private void showCompactMemberList(MemberRegistry mReg) {
     ConsoleUI ui = new ConsoleUI();
     ui.printCompactList(mReg);
-    int input = ui.collectInteger("memberID or 0 to exit");
+    int input = ui.collectInteger("memberID or 0 to go back");
     if (input != 0) {
-      ui.showMemberOptions(mReg,input);
+      ui.showMemberOptions();
+      ui.collectUserChoice();
+      switch (ui.collectUserChoice()) {
+        case 0:
+          break;
+        case 1:
+          ui.printMember(mReg, input);
+          break;
+        case 2:
+          break;
+        case 3:
+          break;
+        default:
+          break;  
+      }
     }
   }
 
