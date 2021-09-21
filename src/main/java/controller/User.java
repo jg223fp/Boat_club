@@ -58,7 +58,7 @@ public class User {
     ConsoleUI ui = new ConsoleUI();
     String firstName = ui.collectString("first name");
     String lastName = ui.collectString("last name");
-    Double personalNumber = ui.collectDouble("personal number");
+    long personalNumber = ui.collectLong("personal number (10 digits)");
 
     try {
       Member m = mReg.addMember(firstName, lastName, personalNumber);

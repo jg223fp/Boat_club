@@ -13,7 +13,7 @@ public class Member extends Person {
   /**
   * Class constructor.
   */
-  public Member(String firstName, String lastName, Long personalNumber, int memberId) {
+  public Member(String firstName, String lastName, long personalNumber, int memberId) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.personalNumber = personalNumber;
