@@ -108,6 +108,22 @@ public class ConsoleUI {
   }
 
   /**
+  * Collects long from console.
+  */
+  public long collectLong(String type) {
+    long input = -1;
+    while (input == -1) {
+      try {
+        System.out.format("\nPlease enter %s: ", type);
+        input = Long.parseLong(console.nextLine());
+      } catch (NumberFormatException e) {
+        System.out.println("Invalid input. Please try again.");
+      }
+    }
+    return input;
+  }
+
+  /**
   * Prints information from a member object.
   */
   public void confirmMember() {
