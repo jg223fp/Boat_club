@@ -2,8 +2,6 @@ package controller;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
 import model.domain.Member;
 import model.domain.MemberRegistry;
 import view.ConsoleUI;
@@ -40,10 +38,10 @@ public class User {
           createMember(mReg);
           break;
         case 2:
-          showVerboseMemberList();
+          showVerboseMemberList(mReg);
           break; 
         case 3:
-          showCompactMemberList();
+          showCompactMemberList(mReg);
           break;
         default:
           break;     
@@ -76,15 +74,20 @@ public class User {
   /**
   * Displays a verbose memberlist.
   */
-  private void showVerboseMemberList() {
+  private void showVerboseMemberList(MemberRegistry mReg) {
       //TODO
   }
 
   /**
   * Displays a compact memberlist.
   */
-  private void showCompactMemberList() {
-    //TODO
+  private void showCompactMemberList(MemberRegistry mReg) {
+    ConsoleUI ui = new ConsoleUI();
+    ui.printCompactList(mReg);
+    int input = ui.collectInteger("memberID or 0 to exit");
+    if (input != 0) {
+      ui.showMemberOptions(mReg,input);
+    }
   }
 
   /**

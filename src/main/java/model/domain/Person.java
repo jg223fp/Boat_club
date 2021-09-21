@@ -13,7 +13,7 @@ public class Person {
   /**
   * Returns the name of the person.
   */
-  private String getFirstName() {
+  public String getFirstName() {
     return this.firstName;
   }
   
@@ -27,7 +27,7 @@ public class Person {
   /**
   * Returns the last name of the person.
   */
-  private String getLastName() {
+  public String getLastName() {
     return this.lastName;
   }
   
@@ -41,7 +41,7 @@ public class Person {
   /**
   * Returns the personal number of the person.
   */
-  private long getPersonalNumber() {
+  public long getPersonalNumber() {
     return this.personalNumber;
   }
   

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 */
 public class Member extends Person {
 
-  private Integer  memberId;
+  private Integer memberId;
   private ArrayList<Boat> boats;
 
   /**
@@ -18,19 +18,20 @@ public class Member extends Person {
     this.lastName = lastName;
     this.personalNumber = personalNumber;
     this.memberId = memberId;
+    this.boats = new ArrayList<Boat>();
   }
   
   /**
   * Returns member ID.
   */
-  private Integer getMemberId() {
+  public Integer getMemberId() {
     return this.memberId;
   }
   
   /**
   * Sets the member ID.
   */
-  private void setMemberId(Integer memberId) {
+  public void setMemberId(Integer memberId) {
     this.memberId = memberId;
   }
   

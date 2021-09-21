@@ -2,6 +2,9 @@ package view;
 
 import java.util.Scanner;
 
+import model.domain.Member;
+import model.domain.MemberRegistry;
+
 /**
 * A class that interacts with the user of the app via text.
 */
@@ -23,9 +26,9 @@ public class ConsoleUI {
   * Prints app header.
   */
   public void printHeader(String appName) {
-    System.out.println("+---------------------------------+");
-    System.out.format("|    Welcome to the %s     |\n", appName);
-    System.out.println("+---------------------------------+");
+    System.out.println("+-------------------------------------+");
+    System.out.format("|   Welcome to the %s   |\n", appName);
+    System.out.println("+-------------------------------------+");
   }
 
   /**
@@ -154,14 +157,25 @@ public class ConsoleUI {
   /**
   * Prints a compact list of the members.
   */
-  public void printCompactList() {
-      //TODO
+  public void printCompactList(MemberRegistry mReg) {
+    try {
+      System.out.println("\nMemberID:\tName:\t\t\tNumber of boats:");
+      for (Member m : mReg.getMemberList()) {
+        String firstName = m.getFirstName();
+        String lastName = m.getLastName();
+        int memberID = m.getMemberId();
+        int numOfBoats = m.getBoatList().size();
+        System.out.format("%d\t\t%s %s\t\t\t\t %d\n",memberID, firstName, lastName, numOfBoats);
+      }
+    } catch (Exception e) {
+      System.out.println("Sorry, something went wrong. Error: " + e);
+    }
   }
 
   /**
   * Prints a menu of the available actions for a member object.
   */
-  public void showMemberOptions() {
+  public void showMemberOptions(MemberRegistry mReg, int memberId ) {
       //TODO
   }
 

@@ -1,6 +1,7 @@
 package model.domain;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
 * A class that stores all member objects.
@@ -36,7 +37,7 @@ public class MemberRegistry {
   /**
   * Returns the member list.
   */
-  public ArrayList<Member> getMemberList() {
+  public Iterable<Member> getMemberList() {
     return members;
   }
   
@@ -52,8 +53,8 @@ public class MemberRegistry {
   * Generates a member ID for a new member.
   */
   private int generateMemberId() {
-    int memberId = members.size();
-    memberId++;
+    int memberId = members.size() + 1;
+    //memberId++;
     return memberId;
   } 
 }

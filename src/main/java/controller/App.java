@@ -12,6 +12,10 @@ public class App {
     String appName = "The jolly pirate";
 
     MemberRegistry mReg = new MemberRegistry();
+    mReg.addMember("Farbror", "Melker", 5502148755L); //test member
+    mReg.addMember("Kapten", "Hadok", 6403154412L); //test member
+    mReg.addMember("Palle", "Kuling", 9999999999L); //test member
+    
     User user = new User();
     user.runApp(mReg, appName); // initiates app
   }
