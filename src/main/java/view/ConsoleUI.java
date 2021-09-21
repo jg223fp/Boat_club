@@ -64,7 +64,7 @@ public class ConsoleUI {
     String input = null;
     while (input == null) {
         try {
-            System.out.format("\nPlease enter a%s: ", type);
+            System.out.format("\nPlease enter a %s: ", type);
             input = console.nextLine();
 
         } catch (Exception e) {
@@ -92,11 +92,20 @@ public class ConsoleUI {
   }
 
   /**
-  * collects float.
+  * collects Double.
   */
-  public Double collectFloat() {
-    Double f = 12.3;
-    return f;
+  public Double collectDouble(String type) {
+    Double input = -1.2;
+    while (input == -1.2) {
+        try {
+            System.out.format("\nPlease enter a %s: ", type);
+            input = Double.parseDouble(console.nextLine());
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please try again.");
+        }
+    }
+    return input;
   }
 
   /**

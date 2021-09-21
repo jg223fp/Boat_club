@@ -1,5 +1,10 @@
 package controller;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.domain.Member;
 import model.domain.MemberRegistry;
 import view.ConsoleUI;
@@ -52,13 +57,17 @@ public class User {
     ConsoleUI ui = new ConsoleUI();
     String firstName = ui.collectString("first name");
     String lastName = ui.collectString("last name");
-    int personalNumber = ui.collectInteger("personal number");
+    Double personalNumber = ui.collectDouble("personal number");
 
     try {
-      Member m = mReg.addMember(firstName, lastName, personalNumber);
+      //Member m = mReg.addMember(firstName, lastName, personalNumber);
     
     } catch (NullPointerException e) {
-      ui.printError(e);
+      StringWriter sw = new StringWriter();
+      PrintWriter pw = new PrintWriter(sw);
+      e.printStackTrace(pw);
+      String stackTrace = sw.toString(); // convert stacktrace to string;
+      ui.printError(stackTrace);
     }
   }
 
