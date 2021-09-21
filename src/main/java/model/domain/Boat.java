@@ -4,10 +4,17 @@ package model.domain;
 * A class representing a boat.
 */
 public class Boat {
-    
+  
+  private enum BoatType {
+    Sailboat, 
+    Motorsailer, 
+    Canoe, 
+    Other
+  }
+
   private String name;
-  private Enum boatType;
   private float length;
+  private BoatType type;
   
   /**
   * Returns the name of the boat.
@@ -26,15 +33,15 @@ public class Boat {
   /**
   * Returns the boat type.
   */
-  private Enum getBoatType() {
-    return this.boatType;
+  private BoatType getBoatType() {
+    return this.type;
   }
 
   /**
   * Sets the boat type.
   */
-  private void setBoatType(Enum boatType) {
-    this.boatType = boatType;
+  private void setBoatType(BoatType type) {
+    this.type = type;
   }
 
   /**
