@@ -60,7 +60,7 @@ public class User {
     Double personalNumber = ui.collectDouble("personal number");
 
     try {
-      //Member m = mReg.addMember(firstName, lastName, personalNumber);
+      Member m = mReg.addMember(firstName, lastName, personalNumber);
     
     } catch (NullPointerException e) {
       StringWriter sw = new StringWriter();

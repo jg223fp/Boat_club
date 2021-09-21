@@ -8,7 +8,7 @@ public class Person {
     
   protected String firstName;
   protected String lastName;
-  protected Integer personalNumber;
+  protected Double personalNumber;
   
   /**
   * Returns the name of the person.
@@ -41,14 +41,14 @@ public class Person {
   /**
   * Returns the personal number of the person.
   */
-  private Integer getPersonalNumber() {
+  private Double getPersonalNumber() {
     return this.personalNumber;
   }
   
   /**
   * Sets the personal number of the person.
   */
-  private void setPersonalNumber(Integer personalNumber) {
+  private void setPersonalNumber(Double personalNumber) {
     this.personalNumber = personalNumber;
   }   
 }
