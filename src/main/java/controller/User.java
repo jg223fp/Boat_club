@@ -68,7 +68,8 @@ public class User {
       e.printStackTrace(pw);
       String stackTrace = sw.toString(); // convert stacktrace to string;
       ui.printError(stackTrace);
-    }
+    } 
+    ui.confirmMember();
   }
 
   /**

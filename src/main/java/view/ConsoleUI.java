@@ -111,6 +111,13 @@ public class ConsoleUI {
   /**
   * Prints information from a member object.
   */
+  public void confirmMember() {
+     System.out.println("\nA new member was sucessfully added.");
+  }
+
+  /**
+  * Prints information from a member object.
+  */
   public void printMember() {
       //TODO
   }
