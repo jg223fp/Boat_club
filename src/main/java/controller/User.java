@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
-
 import model.domain.Member;
 import model.domain.MemberRegistry;
 import view.ConsoleUI;
@@ -45,7 +44,9 @@ public class User {
           break; 
         case 3:
           showCompactMemberList();
-          break;   
+          break;
+        default:
+          break;     
       }
     } 
   }
@@ -84,7 +85,7 @@ public class User {
   */
   private void showCompactMemberList() {
     //TODO
-}
+  }
 
   /**
   * Change a member objects information.

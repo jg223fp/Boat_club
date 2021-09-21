@@ -6,7 +6,7 @@ import java.util.Scanner;
 * A class that interacts with the user of the app via text.
 */
 public class ConsoleUI {
-  
+
   private Scanner console;
   //private int userChoice;
                             
@@ -15,8 +15,8 @@ public class ConsoleUI {
   * Class constructor.
   */
   public ConsoleUI() {
-      this.console = new Scanner(System.in);
-      //this.userChoice = -1;
+    this.console = new Scanner(System.in);
+    //this.userChoice = -1;
   }
 
   /**
@@ -46,13 +46,13 @@ public class ConsoleUI {
     int userChoice = -1;
     // 0-5 because of main menu size.
     while (userChoice < 0 || userChoice > 3) {
-        try {
-            System.out.print("\nPlease enter a selection: ");
-            userChoice = Integer.parseInt(console.nextLine());
+      try {
+        System.out.print("\nPlease enter a selection: ");
+        userChoice = Integer.parseInt(console.nextLine());
 
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid selection. Pleae try again.");
-        }
+      } catch (NumberFormatException e) {
+        System.out.println("Invalid selection. Pleae try again.");
+      }
     }
     return userChoice;
   }
@@ -63,13 +63,13 @@ public class ConsoleUI {
   public String collectString(String type) {
     String input = null;
     while (input == null) {
-        try {
-            System.out.format("\nPlease enter a %s: ", type);
-            input = console.nextLine();
+      try {
+        System.out.format("\nPlease enter a %s: ", type);
+        input = console.nextLine();
 
-        } catch (Exception e) {
-            System.out.println("Invalid input. Please try again.");
-        }
+      } catch (Exception e) {
+        System.out.println("Invalid input. Please try again.");
+      }
     }
     return input;
   }
@@ -80,13 +80,13 @@ public class ConsoleUI {
   public int collectInteger(String type) {
     int input = -1;
     while (input == -1) {
-        try {
-            System.out.format("\nPlease enter %s: ", type);
-            input = Integer.parseInt(console.nextLine());
+      try {
+        System.out.format("\nPlease enter %s: ", type);
+        input = Integer.parseInt(console.nextLine());
 
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please try again.");
-        }
+      } catch (NumberFormatException e) {
+        System.out.println("Invalid input. Please try again.");
+      }
     }
     return input;
   }
@@ -97,13 +97,12 @@ public class ConsoleUI {
   public Double collectDouble(String type) {
     Double input = -1.2;
     while (input == -1.2) {
-        try {
-            System.out.format("\nPlease enter a %s: ", type);
-            input = Double.parseDouble(console.nextLine());
-
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please try again.");
-        }
+      try {
+        System.out.format("\nPlease enter a %s: ", type);
+        input = Double.parseDouble(console.nextLine());
+      } catch (NumberFormatException e) {
+        System.out.println("Invalid input. Please try again.");
+      }
     }
     return input;
   }
@@ -112,7 +111,7 @@ public class ConsoleUI {
   * Prints information from a member object.
   */
   public void confirmMember() {
-     System.out.println("\nA new member was sucessfully added.");
+    System.out.println("\nA new member was sucessfully added.");
   }
 
   /**
@@ -182,6 +181,6 @@ public class ConsoleUI {
   * Prints error message.
   */
   public void printError(String e) {
-    System.out.println("Sorry there was an error. "+e);
+    System.out.println("Sorry there was an error. " + e);
   }
 }
