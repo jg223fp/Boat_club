@@ -38,8 +38,14 @@ public class Member extends Person {
   /**
   * Returns an ArrayList of the members boats.
   */
-  public ArrayList<Boat> getBoatList() {
+  public Iterable<Boat> getBoatList() {
     return boats;
   }
-    
+
+   /**
+  * Returns the number of boats owned by the member.
+  */
+  public Integer getNumberOfBoats() {
+    return this.boats.size();
+  } 
 }

@@ -137,7 +137,15 @@ public class ConsoleUI {
   * Prints information from a member object.
   */
   public void printMember(MemberRegistry mReg, int memberId) {
-      //TODO
+      Member m = mReg.getMember(memberId);
+      System.out.println("Name: " + m.getFirstName() + " " + m.getLastName() ); 
+      System.out.println("MmberID: " + memberId);
+      System.out.println("Personal number: " + m.getPersonalNumber());
+
+      // add printout for boats
+      int numOfBoats = m.getNumberOfBoats();
+
+      
   }
 
   /**
@@ -164,7 +172,7 @@ public class ConsoleUI {
         String firstName = m.getFirstName();
         String lastName = m.getLastName();
         int memberID = m.getMemberId();
-        int numOfBoats = m.getBoatList().size();
+        int numOfBoats = m.getNumberOfBoats();
         System.out.format("%d\t\t%s %s\t\t\t\t %d\n",memberID, firstName, lastName, numOfBoats);
       }
     } catch (Exception e) {
