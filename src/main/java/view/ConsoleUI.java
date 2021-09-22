@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import model.domain.Member;
 import model.domain.MemberRegistry;
+import model.domain.Boat;
 
 /**
 * A class that interacts with the user of the app via text.
@@ -137,13 +138,15 @@ public class ConsoleUI {
   * Prints information from a member object.
   */
   public void printMember(MemberRegistry mReg, int memberId) {
-      Member m = mReg.getMember(memberId);
+      Member m = mReg.getMember(memberId - 1);
       System.out.println("Name: " + m.getFirstName() + " " + m.getLastName() ); 
       System.out.println("MmberID: " + memberId);
       System.out.println("Personal number: " + m.getPersonalNumber());
-
-      // add printout for boats
-      int numOfBoats = m.getNumberOfBoats();
+      System.out.println("Boats: " + m.getNumberOfBoats() +"\nName:  Lenght:   Type:");
+      for (Boat b: m.getBoatList()) {
+        System.out.format("%s\t%d\t\t%s",b.getName(),b.getLength(),b.getBoatType());
+      }
+      
 
       
   }

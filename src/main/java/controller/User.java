@@ -87,7 +87,6 @@ public class User {
     int input = ui.collectInteger("memberID or 0 to go back");
     if (input != 0) {
       ui.showMemberOptions();
-      ui.collectUserChoice();
       switch (ui.collectUserChoice()) {
         case 0:
           break;

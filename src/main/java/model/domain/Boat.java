@@ -19,42 +19,42 @@ public class Boat {
   /**
   * Returns the name of the boat.
   */
-  private String getName() {
+  public String getName() {
     return this.name;
   }
 
   /**
   * Sets the name of the boat.
   */
-  private void setName(String name) {
+  public void setName(String name) {
     this.name = name;
   }
 
   /**
   * Returns the boat type.
   */
-  private BoatType getBoatType() {
+  public BoatType getBoatType() {
     return this.type;
   }
 
   /**
   * Sets the boat type.
   */
-  private void setBoatType(BoatType type) {
+  public void setBoatType(BoatType type) {
     this.type = type;
   }
 
   /**
   * Returns the lenght of the boat.
   */
-  private float getLength() {
+  public float getLength() {
     return this.length;
   }
 
   /**
   * Sets the lenght of the boat.
   */
-  private void setLength(float length) {
+  public void setLength(float length) {
     this.length = length;
   }
 }
