@@ -5,7 +5,7 @@ package model.domain;
 */
 public class Boat {
   
-  private enum BoatType {
+  public enum BoatType {
     Sailboat, 
     Motorsailer, 
     Canoe, 
@@ -13,13 +13,13 @@ public class Boat {
   }
 
   private String name;
-  private float length;
+  private double length;
   private BoatType type;
   
   /**
   * Class constructor.
   */
-  public Boat(String name, BoatType type, float lenght) {
+  public Boat(String name, BoatType type, double lenght) {
     this.name = name;
     this.type = type;
     this.length = lenght;
@@ -56,14 +56,14 @@ public class Boat {
   /**
   * Returns the lenght of the boat.
   */
-  public float getLength() {
+  public double getLength() {
     return this.length;
   }
 
   /**
   * Sets the lenght of the boat.
   */
-  public void setLength(float length) {
+  public void setLength(double length) {
     this.length = length;
   }
 }
