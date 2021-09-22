@@ -10,11 +10,7 @@ import view.ConsoleUI;
 * "Main" class. It is in this class the program is running
 */
 public class User {
-
-  public User() {
-    
-  }
-                                   
+                                
   /**
   * Initiates the application.
   */
@@ -59,7 +55,8 @@ public class User {
     long personalNumber = ui.collectLong("personal number (10 digits)");
 
     try {
-      Member m = mReg.addMember(firstName, lastName, personalNumber);
+      int iD = mReg.addMember(firstName, lastName, personalNumber);
+      Member m = mReg.getMember(iD);
     
     } catch (NullPointerException e) {
       StringWriter sw = new StringWriter();
@@ -68,7 +65,7 @@ public class User {
       String stackTrace = sw.toString(); // convert stacktrace to string;
       ui.printError(stackTrace);
     } 
-    ui.confirmMember();
+    ui.confirmation("member");
   }
 
   /**
@@ -86,7 +83,7 @@ public class User {
     ui.printCompactList(mReg);
     int input = ui.collectInteger("memberID or 0 to go back");
     if (input != 0) {
-      ui.showMemberOptions();
+      ui.printMemberOptions();
       switch (ui.collectUserChoice()) {
         case 0:
           break;

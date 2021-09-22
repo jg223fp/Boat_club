@@ -128,10 +128,10 @@ public class ConsoleUI {
   }
 
   /**
-  * Prints information from a member object.
+  * Prints a confirmation that an object was sucessfully added.
   */
-  public void confirmMember() {
-    System.out.println("\nA new member was sucessfully added.");
+  public void confirmation(String type) {
+    System.out.println("\nA new " + type + " was sucessfully added.");
   }
 
   /**
@@ -145,23 +145,13 @@ public class ConsoleUI {
       System.out.println("Boats: " + m.getNumberOfBoats() +"\nName:  Lenght:   Type:");
       for (Boat b: m.getBoatList()) {
         System.out.format("%s\t%d\t\t%s",b.getName(),b.getLength(),b.getBoatType());
-      }
-      
-
-      
-  }
-
-  /**
-  * Prints a menu of the member listing alternatives.
-  */
-  public void showListOptions() {
-      //TODO
+      }  
   }
 
   /**
   * Prints a verbose list of the members.
   */
-  public void printVerboseList() {
+  public void printVerboseList(MemberRegistry mReg) {
       //TODO
   }
 
@@ -186,7 +176,7 @@ public class ConsoleUI {
   /**
   * Prints a menu of the available actions for a member object.
   */
-  public void showMemberOptions() {
+  public void printMemberOptions() {
     System.out.println("\n1. View member information");
     System.out.println("2. Change member information");
     System.out.println("3. Delete member");
@@ -196,7 +186,7 @@ public class ConsoleUI {
   /**
   * Prints the information of a member.
   */
-  public void showMemberMenu() {
+  public void printMemberMenu() {
       //TODO
   }
 

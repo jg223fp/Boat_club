@@ -17,6 +17,15 @@ public class Boat {
   private BoatType type;
   
   /**
+  * Class constructor.
+  */
+  public Boat(String name, BoatType type, float lenght) {
+    this.name = name;
+    this.type = type;
+    this.length = lenght;
+  }
+
+  /**
   * Returns the name of the boat.
   */
   public String getName() {

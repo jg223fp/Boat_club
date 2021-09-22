@@ -1,7 +1,6 @@
 package model.domain;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
 * A class that stores all member objects.
@@ -18,20 +17,20 @@ public class MemberRegistry {
   }
   
   /**
-  * Creates a new member and returns the member object.
+  * Creates a new member and returns the member ID.
   */
-  public Member addMember(String firstName, String lastName, long personalNumber) {
+  public int addMember(String firstName, String lastName, long personalNumber) {
     int memberId = generateMemberId();
     Member m = new Member(firstName, lastName, personalNumber, memberId);
     members.add(m);
-    return m;
+    return memberId;
   }
 
   /**
   * Deletes a member.
   */
-  public void deleteMember(Member m) {
-    members.remove(m);
+  public void deleteMember(int memberId) {
+    members.remove(memberId - 1);
   }
   
   /**
@@ -42,10 +41,10 @@ public class MemberRegistry {
   }
   
   /**
-  * Returns a member object from a given index.
+  * Returns a member object from a given memberId.
   */
-  public Member getMember(int index) {
-    Member m = members.get(index);
+  public Member getMember(int memberId) {
+    Member m = members.get(memberId);
     return m;
   }
   
@@ -54,7 +53,6 @@ public class MemberRegistry {
   */
   private int generateMemberId() {
     int memberId = members.size() + 1;
-    //memberId++;
     return memberId;
   } 
 }
