@@ -46,10 +46,10 @@ public class ConsoleUI {
   /**
   * Collects the input from the user.
   */
-  public int collectUserChoice() {
+  public int collectUserChoice(int limit) {
     int userChoice = -1;
     // 0-5 because of main menu size.
-    while (userChoice < 0 || userChoice > 3) {
+    while (userChoice < 0 || userChoice > limit) {
       try {
         System.out.print("\nPlease enter a selection: ");
         userChoice = Integer.parseInt(console.nextLine());
@@ -130,38 +130,40 @@ public class ConsoleUI {
   /**
   * Prints a confirmation that an object was sucessfully added.
   */
-  public void confirmation(String type) {
-    System.out.println("\nA new " + type + " was sucessfully added.");
+  public void confirmation(String type,String action) {
+    System.out.format("\nThe %s was sucessfully %s.\n",type,action);
   }
 
   /**
   * Prints information from a member object.
   */
-  public void printMember(MemberRegistry mReg, int memberId) {
-      Member m = mReg.getMember(memberId - 1);
-      System.out.println("Name: " + m.getFirstName() + " " + m.getLastName() ); 
-      System.out.println("MmberID: " + memberId);
+  public void printMember(MemberRegistry memberReg, int memberID) {
+      Member m = memberReg.getMember(memberID);
+      System.out.format("Name: %s %s\n", m.getFirstName(),m.getLastName()); 
+      System.out.println("MemberID: " + memberID);
       System.out.println("Personal number: " + m.getPersonalNumber());
-      System.out.println("Boats: " + m.getNumberOfBoats() +"\nName:  Lenght:   Type:");
+      System.out.println("\nNumber of boats: " + m.getNumberOfBoats());
+      System.out.format("\n%-20s %-10s %-10s\n","Name","Lenght:","Type:");
       for (Boat b: m.getBoatList()) {
-        System.out.format("%s\t%d\t\t%s",b.getName(),b.getLength(),b.getBoatType());
-      }  
+        System.out.format("%-20s %-10.1f %-10s\n",b.getName(),b.getLength(),b.getBoatType());
+      
+      } System.out.println();
   }
 
   /**
   * Prints a verbose list of the members.
   */
-  public void printVerboseList(MemberRegistry mReg) {
+  public void printVerboseList(MemberRegistry memberReg) {
       //TODO
   }
 
   /**
   * Prints a compact list of the members.
   */
-  public void printCompactList(MemberRegistry mReg) {
+  public void printCompactList(MemberRegistry memberReg) {
     try {
       System.out.println("\nMemberID:\tName:\t\t\tNumber of boats:");
-      for (Member m : mReg.getMemberList()) {
+      for (Member m : memberReg.getMemberList()) {
         String firstName = m.getFirstName();
         String lastName = m.getLastName();
         int memberID = m.getMemberId();
@@ -209,6 +211,16 @@ public class ConsoleUI {
   */
   public void showBoatOptions() {
       //TODO
+  }
+
+  /**
+  * Prits reassurans question.
+  */
+  public void printAreYouSure(String action) {
+    System.out.println("Are you sure you want to " + action + "?");
+    System.out.println("1. Yes");
+    System.out.println("2. No");
+
   }
     
   /**
