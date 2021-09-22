@@ -42,10 +42,17 @@ public class Member extends Person {
     return boats;
   }
 
-   /**
+  /**
   * Returns the number of boats owned by the member.
   */
   public Integer getNumberOfBoats() {
     return this.boats.size();
+  } 
+
+  /**
+  * Adds a boat object to a members boatlist.
+  */
+  public void addBoat(Boat b) {
+    this.boats.add(b);
   } 
 }
