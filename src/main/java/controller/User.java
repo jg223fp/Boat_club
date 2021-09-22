@@ -72,7 +72,13 @@ public class User {
   * Displays a verbose memberlist.
   */
   private void showVerboseMemberList(MemberRegistry memberReg) {
-      //TODO
+    ConsoleUI ui = new ConsoleUI();
+    for (Member m : memberReg.getMemberList()) {
+      ui.printMember(m);
+      if (m.getNumberOfBoats() > 0) {
+        ui.printBoats(m);
+      }
+    };
   }
 
   /**
@@ -88,7 +94,11 @@ public class User {
         case 0:
           break;
         case 1:
-          ui.printMember(memberReg, input);
+          Member m = memberReg.getMember(input);
+          ui.printMember(m);
+          if (m.getNumberOfBoats() > 0) {
+            ui.printBoats(m);
+          }
           break;
         case 2:
           break;
