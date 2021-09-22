@@ -30,7 +30,12 @@ public class MemberRegistry {
   * Deletes a member.
   */
   public void deleteMember(int memberId) {
-    members.remove(memberId - 1);
+    for (Member m: members) {
+      if (m.getMemberId() == memberId) {
+        members.remove(m);
+        break;
+      }
+    }  
   }
   
   /**
@@ -44,15 +49,24 @@ public class MemberRegistry {
   * Returns a member object from a given memberId.
   */
   public Member getMember(int memberId) {
-    Member m = members.get(memberId);
-    return m;
+    for (Member m: members) {
+      if (m.getMemberId() == memberId) {
+        return m;
+      }
+    } 
+    return null;
   }
   
   /**
   * Generates a member ID for a new member.
   */
   private int generateMemberId() {
-    int memberId = members.size() + 1;
-    return memberId;
+    int memberId = 0;
+    for (Member m : members) {
+      if (m.getMemberId() >= memberId) {
+        memberId = m.getMemberId();
+      }
+    }
+    return memberId + 1;
   } 
 }

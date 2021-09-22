@@ -14,7 +14,7 @@ public class User {
   /**
   * Initiates the application.
   */
-  public void runApp(MemberRegistry mReg, String appName) {
+  public void runApp(MemberRegistry memberReg, String appName) {
 
     ConsoleUI ui = new ConsoleUI();
     ui.printHeader(appName);          // present app name
@@ -25,19 +25,19 @@ public class User {
     while (!exit) {  
       ui.printMainMenu();
 
-      switch (ui.collectUserChoice()) {
+      switch (ui.collectUserChoice(3)) {
         case 0:
           exit = true; 
           // SAVE MEMBERS HERE!!!!   
           break;        
         case 1:
-          createMember(mReg);
+          createMember(memberReg);
           break;
         case 2:
-          showVerboseMemberList(mReg);
+          showVerboseMemberList(memberReg);
           break; 
         case 3:
-          showCompactMemberList(mReg);
+          showCompactMemberList(memberReg);
           break;
         default:
           break;     
@@ -48,15 +48,15 @@ public class User {
   /**
   * Starts the process of creating a new member.
   */
-  private void createMember(MemberRegistry mReg) {
+  private void createMember(MemberRegistry memberReg) {
     ConsoleUI ui = new ConsoleUI();
     String firstName = ui.collectString("first name");
     String lastName = ui.collectString("last name");
     long personalNumber = ui.collectLong("personal number (10 digits)");
 
     try {
-      int iD = mReg.addMember(firstName, lastName, personalNumber);
-      Member m = mReg.getMember(iD);
+      int iD = memberReg.addMember(firstName, lastName, personalNumber);
+      Member m = memberReg.getMember(iD);
     
     } catch (NullPointerException e) {
       StringWriter sw = new StringWriter();
@@ -65,34 +65,39 @@ public class User {
       String stackTrace = sw.toString(); // convert stacktrace to string;
       ui.printError(stackTrace);
     } 
-    ui.confirmation("member");
+    ui.confirmation("member","created");
   }
 
   /**
   * Displays a verbose memberlist.
   */
-  private void showVerboseMemberList(MemberRegistry mReg) {
+  private void showVerboseMemberList(MemberRegistry memberReg) {
       //TODO
   }
 
   /**
   * Displays a compact memberlist.
   */
-  private void showCompactMemberList(MemberRegistry mReg) {
+  private void showCompactMemberList(MemberRegistry memberReg) {
     ConsoleUI ui = new ConsoleUI();
-    ui.printCompactList(mReg);
+    ui.printCompactList(memberReg);
     int input = ui.collectInteger("memberID or 0 to go back");
     if (input != 0) {
       ui.printMemberOptions();
-      switch (ui.collectUserChoice()) {
+      switch (ui.collectUserChoice(3)) {
         case 0:
           break;
         case 1:
-          ui.printMember(mReg, input);
+          ui.printMember(memberReg, input);
           break;
         case 2:
           break;
         case 3:
+          ui.printAreYouSure("you want to delete this member");
+          if (ui.collectUserChoice(1) == 1) {
+            memberReg.deleteMember(input);
+            ui.confirmation("member","deleted");
+          }
           break;
         default:
           break;  
