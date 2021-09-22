@@ -138,21 +138,11 @@ public class ConsoleUI {
   * Prints information from a member object.
   */
   public void printMember(Member m) {
-      //Member m = memberReg.getMember(memberID);
       System.out.format("\nName: %s %s\n", m.getFirstName(),m.getLastName()); 
       System.out.println("MemberID: " + m.getMemberId());
       System.out.println("Personal number: " + m.getPersonalNumber());
       System.out.println("\nNumber of boats: " + m.getNumberOfBoats());
   }
-
-  /**
-  * Prints a verbose list of the members.
-  */
-  //public void printVerboseList(MemberRegistry memberReg) {
-  //    for (Member m : memberReg.getMemberList()) {
-  //      printMember(memberReg, m.getmemberID);
-  //    }
-  //}
 
   /**
   * Prints a compact list of the members.
@@ -200,7 +190,7 @@ public class ConsoleUI {
   * Prints the boats from a member object.
   */
   public void printBoats(Member m) {
-    System.out.format("\n%-20s %-10s %-10s\n","Name","Lenght:","Type:");
+    System.out.format("\n%-20s %-10s %-10s\n","Name:","Lenght:","Type:");
     for (Boat b: m.getBoatList()) {
       System.out.format("%-20s %-10.1f %-10s\n",b.getName(),b.getLength(),b.getBoatType());
     }
@@ -210,7 +200,7 @@ public class ConsoleUI {
   /**
   * Prints the available actions for a boat object.
   */
-  public void showBoatOptions() {
+  public void printBoatOptions() {
       //TODO
   }
 
