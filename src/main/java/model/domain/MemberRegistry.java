@@ -30,7 +30,7 @@ public class MemberRegistry {
   * Deletes a member.
   */
   public void deleteMember(int memberId) {
-    for (Member m: members) {
+    for (Member m : members) {
       if (m.getMemberId() == memberId) {
         members.remove(m);
         break;
@@ -49,7 +49,7 @@ public class MemberRegistry {
   * Returns a member object from a given memberId.
   */
   public Member getMember(int memberId) {
-    for (Member m: members) {
+    for (Member m : members) {
       if (m.getMemberId() == memberId) {
         return m;
       }

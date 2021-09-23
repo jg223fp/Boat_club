@@ -5,6 +5,9 @@ package model.domain;
 */
 public class Boat {
   
+  /**
+  * Boat type enumeration.
+  */
   public enum BoatType {
     Sailboat, 
     Motorsailer, 

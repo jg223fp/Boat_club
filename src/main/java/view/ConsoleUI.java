@@ -1,7 +1,6 @@
 package view;
 
 import java.util.Scanner;
-
 import model.domain.Member;
 import model.domain.MemberRegistry;
 import model.domain.Boat;
@@ -130,18 +129,18 @@ public class ConsoleUI {
   /**
   * Prints a confirmation that an object was sucessfully added.
   */
-  public void confirmation(String type,String action) {
-    System.out.format("\nThe %s was sucessfully %s.\n",type,action);
+  public void confirmation(String type, String action) {
+    System.out.format("\nThe %s was sucessfully %s.\n", type, action);
   }
 
   /**
   * Prints information from a member object.
   */
   public void printMember(Member m) {
-      System.out.format("\nName: %s %s\n", m.getFirstName(),m.getLastName()); 
-      System.out.println("MemberID: " + m.getMemberId());
-      System.out.println("Personal number: " + m.getPersonalNumber());
-      System.out.println("\nNumber of boats: " + m.getNumberOfBoats());
+    System.out.format("\nName: %s %s\n", m.getFirstName(), m.getLastName()); 
+    System.out.println("MemberID: " + m.getMemberId());
+    System.out.println("Personal number: " + m.getPersonalNumber());
+    System.out.println("\nNumber of boats: " + m.getNumberOfBoats());
   }
 
   /**
@@ -153,9 +152,9 @@ public class ConsoleUI {
       for (Member m : memberReg.getMemberList()) {
         String firstName = m.getFirstName();
         String lastName = m.getLastName();
-        int memberID = m.getMemberId();
+        int memberId = m.getMemberId();
         int numOfBoats = m.getNumberOfBoats();
-        System.out.format("%d\t\t%s %s\t\t\t\t %d\n",memberID, firstName, lastName, numOfBoats);
+        System.out.format("%d\t\t%s %s\t\t\t\t %d\n", memberId, firstName, lastName, numOfBoats);
       }
     } catch (Exception e) {
       System.out.println("Sorry, something went wrong. Error: " + e);
@@ -190,9 +189,9 @@ public class ConsoleUI {
   * Prints the boats from a member object.
   */
   public void printBoats(Member m) {
-    System.out.format("\n%-20s %-10s %-10s\n","Name:","Lenght:","Type:");
-    for (Boat b: m.getBoatList()) {
-      System.out.format("%-20s %-10.1f %-10s\n",b.getName(),b.getLength(),b.getBoatType());
+    System.out.format("\n%-20s %-10s %-10s\n", "Name:", "Lenght:", "Type:");
+    for (Boat b : m.getBoatList()) {
+      System.out.format("%-20s %-10.1f %-10s\n", b.getName(), b.getLength(), b.getBoatType());
     }
     System.out.println();
   }

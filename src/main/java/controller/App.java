@@ -22,8 +22,8 @@ public class App {
 
     //adding test boats
     Member m = memberReg.getMember(1);
-    Boat b = new Boat("Ekan",Boat.BoatType.Canoe,4.5);
-    Boat b1 = new Boat("Titanic",Boat.BoatType.Other,269);
+    Boat b = new Boat("Ekan", Boat.BoatType.Canoe, 4.5);
+    Boat b1 = new Boat("Titanic", Boat.BoatType.Other, 269);
     m.addBoat(b);
     m.addBoat(b1);
 

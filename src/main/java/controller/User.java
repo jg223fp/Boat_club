@@ -65,7 +65,7 @@ public class User {
       String stackTrace = sw.toString(); // convert stacktrace to string;
       ui.printError(stackTrace);
     } 
-    ui.confirmation("member","created");
+    ui.confirmation("member", "created");
   }
 
   /**
@@ -78,7 +78,7 @@ public class User {
       if (m.getNumberOfBoats() > 0) {
         ui.printBoats(m);
       }
-    };
+    }
   }
 
   /**
@@ -106,7 +106,7 @@ public class User {
           ui.printAreYouSure("you want to delete this member");
           if (ui.collectUserChoice(1) == 1) {
             memberReg.deleteMember(input);
-            ui.confirmation("member","deleted");
+            ui.confirmation("member", "deleted");
           }
           break;
         default:
