@@ -6,25 +6,24 @@ import model.domain.MemberRegistry;
 import model.domain.Boat;
 
 /**
-* A class that interacts with the user of the app via text.
-*/
+ * A class that interacts with the user of the app via text.
+ */
 public class ConsoleUI {
 
   private Scanner console;
-  //private int userChoice;
-                            
-  
+  // private int userChoice;
+
   /**
-  * Class constructor.
-  */
+   * Class constructor.
+   */
   public ConsoleUI() {
     this.console = new Scanner(System.in);
-    //this.userChoice = -1;
+    // this.userChoice = -1;
   }
 
   /**
-  * Prints app header.
-  */
+   * Prints app header.
+   */
   public void printHeader(String appName) {
     System.out.println("+-------------------------------------+");
     System.out.format("|   Welcome to the %s   |\n", appName);
@@ -32,19 +31,19 @@ public class ConsoleUI {
   }
 
   /**
-  * Prints the main menu.
-  */
+   * Prints the main menu.
+   */
   public void printMainMenu() {
     System.out.println("\nMain Menu");
     System.out.println("1. Create new member");
     System.out.println("2. Show verbose member list");
-    System.out.println("3. Show compact member list");
+    System.out.println("3. Show compact member list and change members");
     System.out.println("0. Exit application");
   }
 
   /**
-  * Collects the input from the user.
-  */
+   * Collects the input from the user.
+   */
   public int collectUserChoice(int limit) {
     int userChoice = -1;
     // 0-5 because of main menu size.
@@ -61,8 +60,8 @@ public class ConsoleUI {
   }
 
   /**
-  * collects string.
-  */
+   * collects string.
+   */
   public String collectString(String type) {
     String input = null;
     while (input == null) {
@@ -78,11 +77,11 @@ public class ConsoleUI {
   }
 
   /**
-  * collect int.
-  */
+   * collect int.
+   */
   public int collectInteger(String type) {
     int input = -1;
-    while (input == -1) {
+    while (input < 0) {
       try {
         System.out.format("\nPlease enter %s: ", type);
         input = Integer.parseInt(console.nextLine());
@@ -95,11 +94,11 @@ public class ConsoleUI {
   }
 
   /**
-  * collects Double.
-  */
+   * collects Double.
+   */
   public Double collectDouble(String type) {
     Double input = -1.2;
-    while (input == -1.2) {
+    while (input < 0) {
       try {
         System.out.format("\nPlease enter a %s: ", type);
         input = Double.parseDouble(console.nextLine());
@@ -111,11 +110,11 @@ public class ConsoleUI {
   }
 
   /**
-  * Collects long from console.
-  */
+   * Collects long from console.
+   */
   public long collectLong(String type) {
     long input = -1;
-    while (input == -1) {
+    while (input < 0) {
       try {
         System.out.format("\nPlease enter %s: ", type);
         input = Long.parseLong(console.nextLine());
@@ -127,34 +126,34 @@ public class ConsoleUI {
   }
 
   /**
-  * Prints a confirmation that an object was sucessfully added.
-  */
+   * Prints a confirmation that an object was sucessfully added.
+   */
   public void confirmation(String type, String action) {
     System.out.format("\nThe %s was sucessfully %s.\n", type, action);
   }
 
   /**
-  * Prints information from a member object.
-  */
+   * Prints information from a member object.
+   */
   public void printMember(Member m) {
-    System.out.format("\nName: %s %s\n", m.getFirstName(), m.getLastName()); 
+    System.out.format("\nName: %s %s\n", m.getFirstName(), m.getLastName());
     System.out.println("MemberID: " + m.getMemberId());
     System.out.println("Personal number: " + m.getPersonalNumber());
-    System.out.println("\nNumber of boats: " + m.getNumberOfBoats());
+    System.out.println("Number of boats: " + m.getNumberOfBoats());
   }
 
   /**
-  * Prints a compact list of the members.
-  */
+   * Prints a compact list of the members.
+   */
   public void printCompactList(MemberRegistry memberReg) {
     try {
-      System.out.println("\nMemberID:\tName:\t\t\tNumber of boats:");
+      System.out.format("\n%-15s %-30s %-20s\n", "MemberID:", "Name:", "Number of boats:");
       for (Member m : memberReg.getMemberList()) {
         String firstName = m.getFirstName();
         String lastName = m.getLastName();
         int memberId = m.getMemberId();
         int numOfBoats = m.getNumberOfBoats();
-        System.out.format("%d\t\t%s %s\t\t\t\t %d\n", memberId, firstName, lastName, numOfBoats);
+        System.out.format("%-15s %-30s %-20s\n", memberId, firstName + " " + lastName, numOfBoats);
       }
     } catch (Exception e) {
       System.out.println("Sorry, something went wrong. Error: " + e);
@@ -162,8 +161,8 @@ public class ConsoleUI {
   }
 
   /**
-  * Prints a menu of the available actions for a member object.
-  */
+   * Prints a menu of the available actions for a member object.
+   */
   public void printMemberOptions() {
     System.out.println("\n1. View member information");
     System.out.println("2. Change member information");
@@ -172,50 +171,61 @@ public class ConsoleUI {
   }
 
   /**
-  * Prints the information of a member.
-  */
+   * Prints the information of a member.
+   */
   public void printMemberMenu() {
-      //TODO
+    // TODO
   }
 
   /**
-  * Prints the register new boat menu.
-  */
+   * Prints the register new boat menu.
+   */
   public void registerBoat() {
-      //TODO
+    // TODO
   }
 
   /**
-  * Prints the boats from a member object.
-  */
+   * Prints the boats from a member object.
+   */
   public void printBoats(Member m) {
-    System.out.format("\n%-20s %-10s %-10s\n", "Name:", "Lenght:", "Type:");
+    System.out.format("\n%-20s %-10s %-10s\n", "Name:", "Lenght (m):", "Type:");
     for (Boat b : m.getBoatList()) {
       System.out.format("%-20s %-10.1f %-10s\n", b.getName(), b.getLength(), b.getBoatType());
     }
     System.out.println();
   }
-  
+
   /**
-  * Prints the available actions for a boat object.
-  */
+   * Prints the available actions for a boat object.
+   */
   public void printBoatOptions() {
-      //TODO
+    // TODO
   }
 
   /**
-  * Prits reassurans question.
-  */
+   * Prits reassurans question.
+   */
   public void printAreYouSure(String action) {
     System.out.println("Are you sure you want to " + action + "?");
     System.out.println("1. Yes");
     System.out.println("2. No");
+  }
+
+  /**
+   * Prints a menu to show options for changing a member.
+   */
+  public void printChangeUserMenu() {
+    System.out.println("\nWhat do you want to change?");
+    System.out.println("1. First name");
+    System.out.println("2. Last name");
+    System.out.println("3. Boats");
+    System.out.println("0. Back");
 
   }
-    
+
   /**
-  * Prints error message.
-  */
+   * Prints error message.
+   */
   public void printError(String e) {
     System.out.println("Sorry there was an error. " + e);
   }
