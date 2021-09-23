@@ -166,15 +166,9 @@ public class ConsoleUI {
   public void printMemberOptions() {
     System.out.println("\n1. View member information");
     System.out.println("2. Change member information");
-    System.out.println("3. Delete member");
+    System.out.println("3. Register new boat");
+    System.out.println("4. Delete member");
     System.out.println("0. Back");
-  }
-
-  /**
-   * Prints the information of a member.
-   */
-  public void printMemberMenu() {
-    // TODO
   }
 
   /**
@@ -199,7 +193,15 @@ public class ConsoleUI {
    * Prints the available actions for a boat object.
    */
   public void printBoatOptions() {
-    // TODO
+    System.out.println("\n1. Change boat information");
+    System.out.println("2. Delete boat");
+    System.out.println("0. Back");
+  }
+
+  public void printBoatTypes() {
+    for (int e = 0; e < Boat.BoatType.Count.ordinal(); e++) {
+      System.out.format("1. %s\n", (Boat.BoatType.values()[e].toString()));
+    }
   }
 
   /**
@@ -207,20 +209,19 @@ public class ConsoleUI {
    */
   public void printAreYouSure(String action) {
     System.out.println("Are you sure you want to " + action + "?");
+    System.out.println("0. No");
     System.out.println("1. Yes");
-    System.out.println("2. No");
   }
 
   /**
    * Prints a menu to show options for changing a member.
    */
-  public void printChangeUserMenu() {
+  public void printChangeMenu(String one, String two, String three) {
     System.out.println("\nWhat do you want to change?");
-    System.out.println("1. First name");
-    System.out.println("2. Last name");
-    System.out.println("3. Boats");
+    System.out.println("1. " + one);
+    System.out.println("2. " + two);
+    System.out.println("3. " + three);
     System.out.println("0. Back");
-
   }
 
   /**
