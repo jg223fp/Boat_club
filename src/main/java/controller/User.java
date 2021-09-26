@@ -7,6 +7,7 @@ import model.domain.Boat;
 import model.domain.Member;
 import model.domain.MemberRegistry;
 import model.domain.Boat.BoatType;
+import model.persistence.MemberDatabase;
 import view.ConsoleUI;
 
 /**
@@ -15,7 +16,30 @@ import view.ConsoleUI;
 public class User {
 
   /**
-   * Initiates the application.
+   * Fetches stored data and puts in the memberregistry.
+   */
+  public void initiateData(MemberRegistry memberReg) {
+    ConsoleUI ui = new ConsoleUI();
+
+    try {
+      MemberDatabase memberDB = new MemberDatabase();
+      memberDB.loadData(memberReg);
+
+    } catch (Exception e) {
+      StringWriter sw = new StringWriter();
+      PrintWriter pw = new PrintWriter(sw);
+      e.printStackTrace(pw);
+      String stackTrace = sw.toString(); // convert stacktrace to string;
+      ui.printError(stackTrace);     // print exception
+    }
+  
+  
+  }
+
+
+
+  /**
+   * starts the application.
    */
   public void runApp(MemberRegistry memberReg, String appName) {
 
