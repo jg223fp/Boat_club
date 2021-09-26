@@ -21,8 +21,8 @@ public class User {
     ConsoleUI ui = new ConsoleUI();
 
     try {
-      MemberDatabase memberDB = new MemberDatabase();
-      memberDB.loadData(memberReg);
+      MemberDatabase memberDb = new MemberDatabase();
+      memberDb.loadData(memberReg);
 
     } catch (Exception e) {
       StringWriter sw = new StringWriter();

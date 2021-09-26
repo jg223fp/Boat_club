@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import model.domain.Boat;
+import model.domain.Boat.BoatType;
 import model.domain.Member;
 import model.domain.MemberRegistry;
-//mport model.domain.Boat.BoatType;
-import model.domain.Boat.BoatType;
 
 /**
  * A class that handles saving and loading.
@@ -39,6 +38,7 @@ public class MemberDatabase {
         m.addBoat(b);
         index += 3;
       }
-    } scan.close();
+    } 
+    scan.close();
   }
 }

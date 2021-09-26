@@ -1,3 +1,3 @@
 Farbror,Melker,5502148755,Ekan,Canoe,4.5,Titanic,Other,269
-Kapten,Hadok,6403154412,Rubber duck, 1.2,Other
-Palle,Kuling,9999999999,Smaragd,25,Motorsailer
+Kapten,Hadok,6403154412,Rubber duck,Other,1.2
+Palle,Kuling,9999999999,Smaragd,Motorsailer,25

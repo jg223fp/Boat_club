@@ -153,7 +153,7 @@ public class ConsoleUI {
         String lastName = m.getLastName();
         int memberId = m.getMemberId();
         int numOfBoats = m.getNumberOfBoats();
-        System.out.format("%-15s %-30s %-20s\n", memberId, firstName + " " + lastName, numOfBoats);
+        System.out.format("%-15d %-30s %-20s\n", memberId, firstName + " " + lastName, numOfBoats);
       }
     } catch (Exception e) {
       System.out.println("Sorry, something went wrong. Error: " + e);
@@ -182,10 +182,13 @@ public class ConsoleUI {
    * Prints the boats from a member object.
    */
   public void printBoats(Member m) {
-    System.out.format("\n%-20s %-10s %-10s\n", "Name:", "Lenght (m):", "Type:");
+    System.out.format("\n%-10s %-20s %-15s %-10s\n", "Number:", "Name:", "Lenght(m):", "Type:");
+    
     for (Boat b : m.getBoatList()) {
-      System.out.format("%-20s %-10.1f %-10s\n", b.getName(), b.getLength(), b.getBoatType());
-    }
+      int index = 1;
+      System.out.format("%-10d %-20s %-15.1f %-10s\n", index, b.getName(), b.getLength(), b.getBoatType());
+      index++;
+    } 
     System.out.println();
   }
 
@@ -198,6 +201,9 @@ public class ConsoleUI {
     System.out.println("0. Back");
   }
 
+  /**
+   * Prints boat types as list.
+   */
   public void printBoatTypes() {
     for (int e = 0; e < Boat.BoatType.Count.ordinal(); e++) {
       System.out.format("%d. %s\n", e, (Boat.BoatType.values()[e].toString()));
