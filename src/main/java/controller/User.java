@@ -2,11 +2,10 @@ package controller;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
 import model.domain.Boat;
+import model.domain.Boat.BoatType;
 import model.domain.Member;
 import model.domain.MemberRegistry;
-import model.domain.Boat.BoatType;
 import model.persistence.MemberDatabase;
 import view.ConsoleUI;
 
@@ -81,8 +80,8 @@ public class User {
     long personalNumber = ui.collectLong("personal number (10 digits)");
 
     try {
-      int iD = memberReg.addMember(firstName, lastName, personalNumber);
-      Member m = memberReg.getMember(iD);
+      int memberId = memberReg.addMember(firstName, lastName, personalNumber);
+      Member m = memberReg.getMember(memberId); // fetch member to confirm creation
 
     } catch (NullPointerException e) {
       StringWriter sw = new StringWriter();
@@ -243,7 +242,10 @@ public class User {
   private void changeBoatType(Boat b) {
     ConsoleUI ui = new ConsoleUI();
     ui.printBoatTypes();
-    int numberOfTypes = Boat.BoatType.values().length - 2; // get number of options from enum (-1 because of count at end of enum)
+
+    // get number of options from enum (-2 because of count at end of enum and array start with 0)
+    int numberOfTypes = Boat.BoatType.values().length - 2; 
+
     int i = ui.collectUserChoice(numberOfTypes);       // collects user choise
     BoatType type = Boat.BoatType.values()[i];         // set variable value depending on user choise
     b.setBoatType(type);
