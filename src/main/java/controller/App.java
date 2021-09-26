@@ -4,6 +4,7 @@ import model.domain.Boat;
 //import model.domain.Boat.BoatType;
 import model.domain.Member;
 import model.domain.MemberRegistry;
+import model.persistence.MemberDatabase;
 
 /**
  * A class to initiate the application.
@@ -18,9 +19,12 @@ public class App {
     String appName = "The Jolly Pirate";
 
     MemberRegistry memberReg = new MemberRegistry();
-    memberReg.addMember("Farbror", "Melker", 5502148755L); // test member
-    memberReg.addMember("Kapten", "Hadok", 6403154412L); // test member
-    memberReg.addMember("Palle", "Kuling", 9999999999L); // test member
+    MemberDatabase memberDB = new MemberDatabase();
+    memberDB.loadData(memberReg);
+
+    //memberReg.addMember("Farbror", "Melker", 5502148755L); // test member
+    //memberReg.addMember("Kapten", "Hadok", 6403154412L); // test member
+    //memberReg.addMember("Palle", "Kuling", 9999999999L); // test member
 
     // adding test boats
     Member m = memberReg.getMember(1);
