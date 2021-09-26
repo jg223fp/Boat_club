@@ -17,7 +17,8 @@ public class MemberDatabase {
   */
   public void loadData(MemberRegistry memberReg) {
     try {
-      File memberData = new File("memberDB.txt");
+      
+      File memberData = new File(System.getProperty("user.dir") + "/data/memberDB.txt");
       Scanner scan = new Scanner(memberData);
 
       while (scan.hasNextLine()) {

@@ -17,14 +17,11 @@ public class App {
   public static void main(String[] args) {
 
     String appName = "The Jolly Pirate";
+    System.out.println(System.getProperty("user.dir"));
 
     MemberRegistry memberReg = new MemberRegistry();
     MemberDatabase memberDB = new MemberDatabase();
     memberDB.loadData(memberReg);
-
-    //memberReg.addMember("Farbror", "Melker", 5502148755L); // test member
-    //memberReg.addMember("Kapten", "Hadok", 6403154412L); // test member
-    //memberReg.addMember("Palle", "Kuling", 9999999999L); // test member
 
     // adding test boats
     Member m = memberReg.getMember(1);
