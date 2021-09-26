@@ -6,6 +6,7 @@ import java.io.StringWriter;
 import model.domain.Boat;
 import model.domain.Member;
 import model.domain.MemberRegistry;
+import model.domain.Boat.BoatType;
 import view.ConsoleUI;
 
 /**
@@ -218,8 +219,11 @@ public class User {
   private void changeBoatType(Boat b) {
     ConsoleUI ui = new ConsoleUI();
     ui.printBoatTypes();
-    // int selection = ui.collectUserChoice(limit);
-
+    int numberOfTypes = Boat.BoatType.values().length - 2; // get number of options from enum (-1 because of count at end of enum)
+    int i = ui.collectUserChoice(numberOfTypes);       // collects user choise
+    BoatType type = Boat.BoatType.values()[i];         // set variable value depending on user choise
+    b.setBoatType(type);
+    ui.confirmation("type", "changed");
   }
 
 }

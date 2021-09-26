@@ -200,7 +200,7 @@ public class ConsoleUI {
 
   public void printBoatTypes() {
     for (int e = 0; e < Boat.BoatType.Count.ordinal(); e++) {
-      System.out.format("1. %s\n", (Boat.BoatType.values()[e].toString()));
+      System.out.format("%d. %s\n", e, (Boat.BoatType.values()[e].toString()));
     }
   }
 
