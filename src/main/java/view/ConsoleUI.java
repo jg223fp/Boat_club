@@ -38,22 +38,25 @@ public class ConsoleUI {
     System.out.println("1. Create new member");
     System.out.println("2. Show verbose member list");
     System.out.println("3. Show compact member list and change members");
-    System.out.println("0. Exit application");
+    // System.out.println("0. Exit application");
   }
 
   /**
    * Collects the input from the user.
    */
-  public int collectUserChoice(int limit) {
+  public int collectUserChoice(int limit, String type) {
     int userChoice = -1;
     // 0-5 because of main menu size.
     while (userChoice < 0 || userChoice > limit) {
       try {
-        System.out.print("\nPlease enter a selection: ");
+        System.out.format("\nPlease enter %s: ", type);
         userChoice = Integer.parseInt(console.nextLine());
+        if (userChoice < 0 || userChoice > limit) {
+          throw new NumberFormatException();
+        }
 
       } catch (NumberFormatException e) {
-        System.out.println("Invalid selection. Pleae try again.");
+        System.out.println("Invalid selection. Please try again.");
       }
     }
     return userChoice;
@@ -168,14 +171,7 @@ public class ConsoleUI {
     System.out.println("2. Change member information");
     System.out.println("3. Register new boat");
     System.out.println("4. Delete member");
-    System.out.println("0. Back");
-  }
-
-  /**
-   * Prints the register new boat menu.
-   */
-  public void registerBoat() {
-    // TODO
+    // System.out.println("0. Back");
   }
 
   /**
@@ -183,12 +179,12 @@ public class ConsoleUI {
    */
   public void printBoats(Member m) {
     System.out.format("\n%-10s %-20s %-15s %-10s\n", "Number:", "Name:", "Lenght(m):", "Type:");
-    
+
+    int index = 1;
     for (Boat b : m.getBoatList()) {
-      int index = 1;
       System.out.format("%-10d %-20s %-15.1f %-10s\n", index, b.getName(), b.getLength(), b.getBoatType());
       index++;
-    } 
+    }
     System.out.println();
   }
 
@@ -198,13 +194,14 @@ public class ConsoleUI {
   public void printBoatOptions() {
     System.out.println("\n1. Change boat information");
     System.out.println("2. Delete boat");
-    System.out.println("0. Back");
+    // System.out.println("0. Back");
   }
 
   /**
    * Prints boat types as list.
    */
   public void printBoatTypes() {
+    System.out.println("\nAvailable boat types:");
     for (int e = 0; e < Boat.BoatType.Count.ordinal(); e++) {
       System.out.format("%d. %s\n", e, (Boat.BoatType.values()[e].toString()));
     }
@@ -215,8 +212,8 @@ public class ConsoleUI {
    */
   public void printAreYouSure(String action) {
     System.out.println("Are you sure you want to " + action + "?");
-    System.out.println("0. No");
-    System.out.println("1. Yes");
+    System.out.println("1. No");
+    System.out.println("2. Yes");
   }
 
   /**
@@ -227,7 +224,7 @@ public class ConsoleUI {
     System.out.println("1. " + one);
     System.out.println("2. " + two);
     System.out.println("3. " + three);
-    System.out.println("0. Back");
+    // System.out.println("0. Back");
   }
 
   /**
