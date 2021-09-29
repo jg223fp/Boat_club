@@ -14,23 +14,22 @@ import model.domain.MemberRegistry;
  */
 public class MemberDatabase {
 
-
   /**
-  * Loads stored data. 
-  */
+   * Loads stored data.
+   */
   public void loadData(MemberRegistry memberReg) throws FileNotFoundException, IOException {
     File memberData = new File(System.getProperty("user.dir") + "/data/memberDB.txt");
     Scanner scan = new Scanner(memberData);
-    
+
     while (scan.hasNextLine()) {
       String line = scan.nextLine();
       String[] member = line.split(",");
-      
+
       // creates member and returns the member id
       int memberId = memberReg.addMember(member[0], member[1], Long.parseLong(member[2]));
       Member m = memberReg.getMember(memberId);
-      int index = 3; //data for first boat.
-      while (index < member.length) { //scan boats data on member line.
+      int index = 3; // data for first boat.
+      while (index < member.length) { // scan boats data on member line.
         String name = member[index];
         BoatType boatType = Boat.BoatType.valueOf(member[index + 1]);
         double length = Double.parseDouble(member[index + 2]);
@@ -38,7 +37,7 @@ public class MemberDatabase {
         m.addBoat(b);
         index += 3;
       }
-    } 
+    }
     scan.close();
   }
 }

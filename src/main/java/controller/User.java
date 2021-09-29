@@ -1,6 +1,5 @@
 package controller;
 
-//import java.io.Console;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import model.domain.Boat;
@@ -32,7 +31,6 @@ public class User {
       String stackTrace = sw.toString(); // convert stacktrace to string;
       ui.printError(stackTrace); // print exception
     }
-
   }
 
   /**
@@ -75,6 +73,7 @@ public class User {
     String firstName = ui.collectString("first name");
     String lastName = ui.collectString("last name");
     long personalNumber = 0;
+
     while (personalNumber < 1000000000L || personalNumber > 9999999999L) {
       personalNumber = ui.collectLong("personal number (10 digits)");
     }
@@ -199,9 +198,7 @@ public class User {
     if (m.getNumberOfBoats() > 0) {
       ui.printBoats(m);
     }
-
     int input = ui.collectUserChoice(m.getNumberOfBoats(), "a selection or 0 to go back");
-    // int input = ui.collectInteger("boat number or 0 to go back");
 
     while (input != 0) {
       ui.printBoatOptions();
@@ -242,7 +239,6 @@ public class User {
     try {
       Boat b = new Boat(name, type, lenght);
       m.addBoat(b);
-      // Member m = memberReg.getMember(memberId); // fetch member to confirm creation
 
     } catch (NullPointerException e) {
       StringWriter sw = new StringWriter();
@@ -304,5 +300,4 @@ public class User {
     b.setBoatType(type);
     ui.confirmation("type", "changed");
   }
-
 }

@@ -25,7 +25,6 @@ public class modelTest {
      */
     @Test
     public void testRegisterNewBoat() {
-        MemberRegistry memreg = new MemberRegistry();
         Boat b = new Boat("Titanic", BoatType.Motorsailer, 8.5);
         Member m = new Member("Jonny", "Stål", 1234567890L, 1);
         m.addBoat(b);

@@ -11,14 +11,12 @@ import model.domain.MemberRegistry;
 public class ConsoleUI {
 
   private Scanner console;
-  // private int userChoice;
 
   /**
    * Class constructor.
    */
   public ConsoleUI() {
     this.console = new Scanner(System.in);
-    // this.userChoice = -1;
   }
 
   /**
@@ -38,15 +36,14 @@ public class ConsoleUI {
     System.out.println("1. Create new member");
     System.out.println("2. Show verbose member list");
     System.out.println("3. Show compact member list and change members");
-    // System.out.println("0. Exit application");
   }
 
   /**
-   * Collects the input from the user.
+   * Collects the input from the user. Limit based on available choises. Prints
+   * type argument.
    */
   public int collectUserChoice(int limit, String type) {
     int userChoice = -1;
-    // 0-5 because of main menu size.
     while (userChoice < 0 || userChoice > limit) {
       try {
         System.out.format("\nPlease enter %s: ", type);
@@ -63,7 +60,7 @@ public class ConsoleUI {
   }
 
   /**
-   * collects string.
+   * Collects string. Prints type argument.
    */
   public String collectString(String type) {
     String input = null;
@@ -80,7 +77,7 @@ public class ConsoleUI {
   }
 
   /**
-   * collect int.
+   * Collect int. Prints type argument.
    */
   public int collectInteger(String type) {
     int input = -1;
@@ -97,7 +94,7 @@ public class ConsoleUI {
   }
 
   /**
-   * collects Double.
+   * Collects Double. Prints type argument.
    */
   public Double collectDouble(String type) {
     Double input = -1.2;
@@ -113,7 +110,7 @@ public class ConsoleUI {
   }
 
   /**
-   * Collects long from console.
+   * Collects long from console.Prints type argument.
    */
   public long collectLong(String type) {
     long input = -1;
@@ -129,7 +126,7 @@ public class ConsoleUI {
   }
 
   /**
-   * Prints a confirmation that an object was sucessfully added.
+   * Prints a confirmation based on arguments.
    */
   public void confirmation(String type, String action) {
     System.out.format("\nThe %s was sucessfully %s.\n", type, action);
@@ -171,7 +168,6 @@ public class ConsoleUI {
     System.out.println("2. Change member information");
     System.out.println("3. Register new boat");
     System.out.println("4. Delete member");
-    // System.out.println("0. Back");
   }
 
   /**
@@ -194,7 +190,6 @@ public class ConsoleUI {
   public void printBoatOptions() {
     System.out.println("\n1. Change boat information");
     System.out.println("2. Delete boat");
-    // System.out.println("0. Back");
   }
 
   /**
@@ -208,7 +203,7 @@ public class ConsoleUI {
   }
 
   /**
-   * Prits reassurans question.
+   * Prints reassurans question and action argument.
    */
   public void printAreYouSure(String action) {
     System.out.println("Are you sure you want to " + action + "?");
@@ -224,7 +219,6 @@ public class ConsoleUI {
     System.out.println("1. " + one);
     System.out.println("2. " + two);
     System.out.println("3. " + three);
-    // System.out.println("0. Back");
   }
 
   /**

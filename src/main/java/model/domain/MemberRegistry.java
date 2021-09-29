@@ -39,7 +39,7 @@ public class MemberRegistry {
   }
 
   /**
-   * Returns the member list.
+   * Returns an iterable member list.
    */
   public Iterable<Member> getMemberList() {
     return members;
