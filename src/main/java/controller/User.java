@@ -260,29 +260,29 @@ public class User {
     ConsoleUI ui = new ConsoleUI();
     int input = -1;
 
-    while (input != 0)
-      ;
-    ui.printChangeMenu("Name", "Length", "Boat type");
-    input = ui.collectUserChoice(3, "a selection or 0 to go back");
-    switch (input) {
-      case 0:
-        input = 0;
-        break;
-      case 1:
-        String name = ui.collectString("new name");
-        b.setName(name);
-        ui.confirmation("name", "changed");
-        break;
-      case 2:
-        Double length = ui.collectDouble("lenght");
-        b.setLength(length);
-        ui.confirmation("length", "changed");
-        break;
-      case 3:
-        changeBoatType(b);
-        break;
-      default:
-        break;
+    while (input != 0) {
+      ui.printChangeMenu("Name", "Length", "Boat type");
+      input = ui.collectUserChoice(3, "a selection or 0 to go back");
+      switch (input) {
+        case 0:
+          input = 0;
+          break;
+        case 1:
+          String name = ui.collectString("new name");
+          b.setName(name);
+          ui.confirmation("name", "changed");
+          break;
+        case 2:
+          Double length = ui.collectDouble("lenght");
+          b.setLength(length);
+          ui.confirmation("length", "changed");
+          break;
+        case 3:
+          changeBoatType(b);
+          break;
+        default:
+          break;
+      }
     }
   }
 
