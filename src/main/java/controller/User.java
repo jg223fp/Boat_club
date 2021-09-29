@@ -74,8 +74,10 @@ public class User {
     ConsoleUI ui = new ConsoleUI();
     String firstName = ui.collectString("first name");
     String lastName = ui.collectString("last name");
-    long personalNumber = ui.collectLong("personal number (10 digits)");
-
+    long personalNumber = 0;
+    while (personalNumber < 1000000000L || personalNumber > 9999999999L) {
+      personalNumber = ui.collectLong("personal number (10 digits)");
+    }
     try {
       int memberId = memberReg.addMember(firstName, lastName, personalNumber);
       Member m = memberReg.getMember(memberId); // fetch member to confirm creation
