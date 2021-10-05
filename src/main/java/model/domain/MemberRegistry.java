@@ -2,12 +2,9 @@ package model.domain;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import model.domain.Boat;
 import model.domain.Boat.BoatType;
-import model.domain.Member;
 import model.domain.MemberRegistry;
 import model.persistence.Loadable;
 
