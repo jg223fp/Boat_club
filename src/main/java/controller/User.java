@@ -6,7 +6,6 @@ import model.domain.Boat;
 import model.domain.Boat.BoatType;
 import model.domain.Member;
 import model.domain.MemberRegistry;
-import model.persistence.MemberDatabase;
 import view.ConsoleUI;
 
 /**
@@ -21,8 +20,7 @@ public class User {
     ConsoleUI ui = new ConsoleUI();
 
     try {
-      MemberDatabase memberDb = new MemberDatabase();
-      memberDb.loadData(memberReg);
+      memberReg.loadData();
 
     } catch (Exception e) {
       StringWriter sw = new StringWriter();
@@ -77,17 +75,8 @@ public class User {
     while (personalNumber < 1000000000L || personalNumber > 9999999999L) {
       personalNumber = ui.collectLong("personal number (10 digits)");
     }
-    try {
-      int memberId = memberReg.addMember(firstName, lastName, personalNumber);
-      Member m = memberReg.getMember(memberId); // fetch member to confirm creation
+    memberReg.addMember(firstName, lastName, personalNumber);
 
-    } catch (NullPointerException e) {
-      StringWriter sw = new StringWriter();
-      PrintWriter pw = new PrintWriter(sw);
-      e.printStackTrace(pw);
-      String stackTrace = sw.toString(); // convert stacktrace to string;
-      ui.printError(stackTrace);
-    }
     ui.confirmation("member", "created");
   }
 

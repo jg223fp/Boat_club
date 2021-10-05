@@ -1,11 +1,20 @@
 package model.domain;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
+import model.domain.Boat;
+import model.domain.Boat.BoatType;
+import model.domain.Member;
+import model.domain.MemberRegistry;
+import model.persistence.Loadable;
 
 /**
  * A class that stores all member objects.
  */
-public class MemberRegistry {
+public class MemberRegistry implements Loadable {
 
   private ArrayList<Member> members;
 
@@ -17,13 +26,13 @@ public class MemberRegistry {
   }
 
   /**
-   * Creates a new member and returns the member ID.
+   * Creates a new member and ads to member registry.
    */
-  public int addMember(String firstName, String lastName, long personalNumber) {
+  public Member addMember(String firstName, String lastName, long personalNumber) {
     int memberId = generateMemberId();
     Member m = new Member(firstName, lastName, personalNumber, memberId);
     members.add(m);
-    return memberId;
+    return m;
   }
 
   /**
@@ -76,5 +85,32 @@ public class MemberRegistry {
       }
     }
     return memberId + 1;
+  }
+
+  /**
+   * A method from the loadable interface. Loads all members and their boats
+   */
+  @Override
+  public void loadData() throws FileNotFoundException {
+    File memberData = new File(System.getProperty("user.dir") + "/data/memberDB.txt");
+    Scanner scan = new Scanner(memberData);
+
+    while (scan.hasNextLine()) {
+      String line = scan.nextLine();
+      String[] member = line.split(",");
+
+      // creates member and returns the member id
+      Member m = this.addMember(member[0], member[1], Long.parseLong(member[2]));
+      int index = 3; // data for first boat.
+      while (index < member.length) { // scan boats data on member line.
+        String name = member[index];
+        BoatType boatType = Boat.BoatType.valueOf(member[index + 1]);
+        double length = Double.parseDouble(member[index + 2]);
+        Boat b = new Boat(name, boatType, length);
+        m.addBoat(b);
+        index += 3;
+      }
+    }
+    scan.close();
   }
 }

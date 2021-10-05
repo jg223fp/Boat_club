@@ -15,7 +15,8 @@ public class modelTest {
     @Test
     public void testRegisterNewMember() {
         MemberRegistry memreg = new MemberRegistry();
-        int memberId = memreg.addMember("Jonny", "Stål", 1234567890L);
+        Member m = memreg.addMember("Jonny", "Stål", 1234567890L);
+        int memberId = m.getMemberId();
 
         assertTrue(memreg.getMember(memberId) != null, "Member was not added properly");
     }
