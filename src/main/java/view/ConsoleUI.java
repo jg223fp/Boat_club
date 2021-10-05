@@ -212,7 +212,7 @@ public class ConsoleUI {
   }
 
   /**
-   * Prints a menu to show options for changing a member.
+   * Prints a menu to show options for changing an object.
    */
   public void printChangeMenu(String one, String two, String three) {
     System.out.println("\nWhat do you want to change?");
