@@ -1,17 +1,15 @@
 package model.domain;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
-import model.domain.Boat.BoatType;
 import model.domain.MemberRegistry;
-import model.persistence.Loadable;
+import model.persistence.DbInterface;
+import model.persistence.IoHandler;
 
 /**
  * A class that stores all member objects.
  */
-public class MemberRegistry implements Loadable {
+public class MemberRegistry implements DbInterface {
 
   private ArrayList<Member> members;
 
@@ -85,29 +83,11 @@ public class MemberRegistry implements Loadable {
   }
 
   /**
-   * A method from the loadable interface. Loads all members and their boats
+   * A method from the loadable interface. Loads all members and their boats.
    */
   @Override
   public void loadData() throws FileNotFoundException {
-    File memberData = new File(System.getProperty("user.dir") + "/data/memberDB.txt");
-    Scanner scan = new Scanner(memberData);
-
-    while (scan.hasNextLine()) {
-      String line = scan.nextLine();
-      String[] member = line.split(",");
-
-      // creates member and returns the member id
-      Member m = this.addMember(member[0], member[1], Long.parseLong(member[2]));
-      int index = 3; // data for first boat.
-      while (index < member.length) { // scan boats data on member line.
-        String name = member[index];
-        BoatType boatType = Boat.BoatType.valueOf(member[index + 1]);
-        double length = Double.parseDouble(member[index + 2]);
-        Boat b = new Boat(name, boatType, length);
-        m.addBoat(b);
-        index += 3;
-      }
-    }
-    scan.close();
+    IoHandler io = new IoHandler();
+    io.loadMembers(this);
   }
 }

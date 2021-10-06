@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 /**
  * An interface that handles saving and loading.
  */
-public interface Loadable {
+public interface DbInterface {
   /**  
    * Loads stored data.
    */
