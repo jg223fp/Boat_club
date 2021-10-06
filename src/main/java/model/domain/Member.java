@@ -60,7 +60,7 @@ public class Member extends Person {
    * Delete a boat object from a members boatlist.
    */
   public void deleteBoat(int index) {
-    boats.remove(index);
+    boats.remove(index - 1);
   }
 
   /**

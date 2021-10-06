@@ -9,7 +9,7 @@ import model.domain.MemberRegistry;
 import view.ConsoleUI;
 
 /**
- * "Main" class. It is in this class the program is running
+ * "Main" class. It is in this class the program is running.
  */
 public class User {
 
@@ -44,7 +44,7 @@ public class User {
     while (!exit) {
       ui.printMainMenu();
 
-      switch (ui.collectUserChoice(3, "a selection or 0 to exit")) {
+      switch (ui.collectUserChoice(3, 0)) {
         case 0:
           exit = true;
           break;
@@ -68,16 +68,16 @@ public class User {
    */
   private void createMember(MemberRegistry memberReg) {
     ConsoleUI ui = new ConsoleUI();
-    String firstName = ui.collectString("first name");
-    String lastName = ui.collectString("last name");
+    String firstName = ui.collectString(0);
+    String lastName = ui.collectString(1);
     long personalNumber = 0;
 
     while (personalNumber < 1000000000L || personalNumber > 9999999999L) {
-      personalNumber = ui.collectLong("personal number (10 digits)");
+      personalNumber = ui.collectPersonalNumber();
     }
     memberReg.addMember(firstName, lastName, personalNumber);
 
-    ui.confirmation("member", "created");
+    ui.confirmation(0, 0);
   }
 
   /**
@@ -100,12 +100,12 @@ public class User {
     ConsoleUI ui = new ConsoleUI();
 
     ui.printCompactList(memberReg);
-    int input = ui.collectUserChoice(memberReg.getNumberOfMembers(), "memberID or 0 to go back");
+    int input = ui.collectUserChoice(memberReg.getNumberOfMembers(), 1);
 
     while (input != 0) {
       ui.printMemberOptions();
       Member m = memberReg.getMember(input); // fetch member
-      switch (ui.collectUserChoice(4, "a selection or 0 to go back")) {
+      switch (ui.collectUserChoice(4, 2)) {
         case 0:
           input = 0;
           break;
@@ -137,10 +137,10 @@ public class User {
    */
   private Boolean deleteMember(MemberRegistry memberReg, int memberId) {
     ConsoleUI ui = new ConsoleUI();
-    ui.printAreYouSure("you want to delete this member");
-    if (ui.collectUserChoice(2, "a selection") == 2) {
+    ui.printAreYouSure(0);
+    if (ui.collectUserChoice(2, 3) == 2) {
       memberReg.deleteMember(memberId);
-      ui.confirmation("member", "deleted");
+      ui.confirmation(0, 1);
       return true;
     }
     return false;
@@ -154,21 +154,21 @@ public class User {
     int input = -1;
 
     while (input != 0) {
-      ui.printChangeMenu("First name", "Last name", "Boats");
-      input = ui.collectUserChoice(3, "a selection or 0 to go back");
+      ui.printChangeMenu(0);
+      input = ui.collectUserChoice(3, 2);
       switch (input) {
         case 0:
           input = 0;
           break;
         case 1:
-          String firstName = ui.collectString("new first name");
+          String firstName = ui.collectString(2);
           m.setFirstName(firstName);
-          ui.confirmation("first name", "changed");
+          ui.confirmation(1, 2);
           break;
         case 2:
-          String lastName = ui.collectString("new last name");
+          String lastName = ui.collectString(3);
           m.setLastName(lastName);
-          ui.confirmation("last name", "changed");
+          ui.confirmation(2, 2);
           break;
         case 3:
           boatMenu(m);
@@ -187,12 +187,12 @@ public class User {
     if (m.getNumberOfBoats() > 0) {
       ui.printBoats(m);
     }
-    int input = ui.collectUserChoice(m.getNumberOfBoats(), "a selection or 0 to go back");
+    int input = ui.collectUserChoice(m.getNumberOfBoats(), 2);
 
     while (input != 0) {
       ui.printBoatOptions();
       Boat b = m.getBoat(input);
-      switch (ui.collectUserChoice(2, "a selection or 0 to go back")) {
+      switch (ui.collectUserChoice(2, 2)) {
         case 0:
           input = 0;
           break;
@@ -200,10 +200,10 @@ public class User {
           changeBoat(b);
           break;
         case 2:
-          ui.printAreYouSure("you want to delete this boat");
-          if (ui.collectUserChoice(2, "a selection or 0 to go back") == 2) {
+          ui.printAreYouSure(1);
+          if (ui.collectUserChoice(2, 2) == 2) {
             m.deleteBoat(input);
-            ui.confirmation("boat", "deleted");
+            ui.confirmation(3, 1);
           }
           input = 0;
           break;
@@ -218,11 +218,11 @@ public class User {
    */
   private void registerBoat(Member m) {
     ConsoleUI ui = new ConsoleUI();
-    String name = ui.collectString("name");
-    Double lenght = ui.collectDouble("boat lenght");
+    String name = ui.collectString(4);
+    Double lenght = ui.collectBoatLength();
     ui.printBoatTypes();
     int numberOfTypes = Boat.BoatType.values().length - 2;
-    int i = ui.collectUserChoice(numberOfTypes, "a selection"); // collects user choise
+    int i = ui.collectUserChoice(numberOfTypes, 3); // collects user choise
     BoatType type = Boat.BoatType.values()[i]; // set variable value depending on user choise
 
     try {
@@ -236,7 +236,7 @@ public class User {
       String stackTrace = sw.toString(); // convert stacktrace to string;
       ui.printError(stackTrace);
     }
-    ui.confirmation("boat", "registred");
+    ui.confirmation(3, 3);
 
   }
 
@@ -248,21 +248,21 @@ public class User {
     int input = -1;
 
     while (input != 0) {
-      ui.printChangeMenu("Name", "Length", "Boat type");
-      input = ui.collectUserChoice(3, "a selection or 0 to go back");
+      ui.printChangeMenu(1);
+      input = ui.collectUserChoice(3, 2);
       switch (input) {
         case 0:
           input = 0;
           break;
         case 1:
-          String name = ui.collectString("new name");
+          String name = ui.collectString(5);
           b.setName(name);
-          ui.confirmation("name", "changed");
+          ui.confirmation(4, 2);
           break;
         case 2:
-          Double length = ui.collectDouble("lenght");
+          Double length = ui.collectBoatLength();
           b.setLength(length);
-          ui.confirmation("length", "changed");
+          ui.confirmation(5, 2);
           break;
         case 3:
           changeBoatType(b);
@@ -284,9 +284,9 @@ public class User {
     // start with 0)
     int numberOfTypes = Boat.BoatType.values().length - 2;
 
-    int i = ui.collectUserChoice(numberOfTypes, "a selection"); // collects user choise
+    int i = ui.collectUserChoice(numberOfTypes, 3); // collects user choise
     BoatType type = Boat.BoatType.values()[i]; // set variable value depending on user choise
     b.setBoatType(type);
-    ui.confirmation("type", "changed");
+    ui.confirmation(6, 2);
   }
 }
