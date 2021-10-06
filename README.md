@@ -15,3 +15,6 @@ Open a terminal and navigate to the folder containing the project.
 `./gradlew run -q --console=plain`
 
 Follow the console instructions to navigate in the app and be amazed!
+</BR></BR>
+
+[Design](/design.md)
