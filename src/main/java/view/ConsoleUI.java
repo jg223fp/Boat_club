@@ -10,6 +10,28 @@ import model.domain.MemberRegistry;
  */
 public class ConsoleUI {
 
+  /**
+   * Enum for different string options.
+   */
+  public enum stringOptions {
+    selectionToExit, selectionToBack, selection, memberIdToGoBack, Count
+  }
+
+  /**
+   * Enum for different subject.
+   */
+  public enum subject {
+    boat, member, lenght, firtsName, lastName, newFirstName, newLastName, name, newName,
+    type, Count
+  }
+
+  /**
+   * Enum for different actions.
+   */
+  public enum action {
+    deleted, registred, changed, created, delete, Count
+  }
+
   private Scanner console;
 
   /**
@@ -29,6 +51,102 @@ public class ConsoleUI {
   }
 
   /**
+   * Converts subject to String.
+   */
+  public String subjectToString(subject object) {
+    String subject;
+    switch (object) {
+      case firtsName:
+        subject = "first name";
+        break;
+      case lastName:
+        subject = "last name";
+        break;
+      case newFirstName:
+        subject = "new first name";
+        break;
+      case newLastName: 
+        subject = "new last name";
+        break;  
+      case name: 
+        subject = "name";
+        break;
+      case newName: 
+        subject = "new name";
+        break; 
+      case boat:
+        subject = "boat";
+        break;
+      case lenght:
+        subject = "lenght";
+        break;
+      case member:
+        subject = "member"; 
+        break;
+      case type:
+        subject = "type";
+        break;  
+      default:
+        subject = "unknown";
+        break;  
+    }
+    return subject;
+  }
+
+  /**
+   * Converts string options to String.
+   */
+  public String stringOptionsToString(stringOptions alt) {
+    String subject;
+    switch (alt) {
+      case selectionToExit:
+        subject = "selection or 0 to exit";
+        break;
+      case memberIdToGoBack:
+        subject = "memberID or 0 to go back";
+        break;
+      case selectionToBack:
+        subject = "a selection or 0 to go back";
+        break;
+      case selection: 
+        subject = "a selection";
+        break;   
+      default:
+        subject = "unknown";
+        break;
+    }
+    return subject;    
+  }
+
+  /**
+   * Converts subject to String.
+   */
+  public String actionToString(action a) {
+    String action;
+    switch (a) {
+      case created:
+        action = "created";
+        break;
+      case registred:
+        action = "registred";
+        break;
+      case changed:
+        action = "changed";
+        break;
+      case deleted: 
+        action = "deleted";
+        break; 
+      case delete: 
+        action = "deleted";
+        break;    
+      default:
+        action = "unknown";
+        break;  
+    }
+    return action;
+  }
+
+  /**
    * Prints the main menu.
    */
   public void printMainMenu() {
@@ -41,28 +159,9 @@ public class ConsoleUI {
   /**
    * Collects the input from the user. Limit based on available choises. Prints
    * different ending based on type argument.
-   * alt = 0: "selection or 0 to exit"         1: "memberID or 0 to go back"
-   *       2: "a selection or 0 to go back"    3: "a selection"
    */
-  public int collectUserChoice(int limit, int alt) {
-    String subject;
-    switch (alt) {
-      case 0:
-        subject = "selection or 0 to exit";
-        break;
-      case 1:
-        subject = "memberID or 0 to go back";
-        break;
-      case 2:
-        subject = "a selection or 0 to go back";
-        break;
-      case 3: 
-        subject = "a selection";
-        break;   
-      default:
-        subject = "unknown";
-        break;  
-    }
+  public int collectUserChoice(int limit, stringOptions alt) { 
+    String subject = stringOptionsToString(alt);
     int userChoice = -1;
     while (userChoice < 0 || userChoice > limit) {
       try {
@@ -81,35 +180,10 @@ public class ConsoleUI {
 
   /**
    * Collects string. Prints type argument.
-   * alt = 0: first name      1: last name
-   *       2: new first name  3: new last name
-   *       4: name            5: new name.
    */
-  public String collectString(int alt) {
-    String subject;
-    switch (alt) {
-      case 0:
-        subject = "first name";
-        break;
-      case 1:
-        subject = "last name";
-        break;
-      case 2:
-        subject = "new first name";
-        break;
-      case 3: 
-        subject = "new last name";
-        break;  
-      case 4: 
-        subject = "name";
-        break;
-      case 5: 
-        subject = "new name";
-        break; 
-      default:
-        subject = "unknown";
-        break;  
-    }    
+  public String collectString(subject alt) {
+    String subject = subjectToString(alt);
+      
     String input = null;
     while (input == null) {
       try {
@@ -156,62 +230,12 @@ public class ConsoleUI {
   }
 
   /**
-   * Prints a confirmation based on arguments.
-   * objectChoise = 0: member  1: first name
-   *                2: last name  3: boat
-   *                4: name       5: lenght
-   *                6: type
-   * actionChoise = 0: created  1: deleted
-   *                2: changed  3: registred.             
+   * Prints a confirmation based on arguments.           
    */
-  public void confirmation(int objectChoise, int actionChoise) {
-    String object;
-    String action;
-
-    switch (objectChoise) {
-      case 0:
-        object = "member";
-        break;
-      case 1:
-        object = "first name";
-        break;
-      case 2:
-        object = "last name";
-        break;
-      case 3: 
-        object = "boat";
-        break;
-      case 4: 
-        object = "name";
-        break;
-      case 5: 
-        object = "length";
-        break;
-      case 6: 
-        object = "type";
-        break;  
-      default:
-        object = "unknown";
-        break;  
-    }
-    switch (actionChoise) {
-      case 0:
-        action = "created";
-        break;
-      case 1:
-        action = "deleted";
-        break;
-      case 2:
-        action = "changed";
-        break;
-      case 3: 
-        action = "registred";
-        break;   
-      default:
-        action = "unknown";
-        break;  
-    }
-    System.out.format("\nThe %s was sucessfully %s.\n", object, action);
+  public void confirmation(subject object, action actionChoise) {
+    String subject = subjectToString(object);
+    String action = actionToString(actionChoise);
+    System.out.format("\nThe %s was sucessfully %s.\n", subject, action);
   }
 
   /**
@@ -286,22 +310,12 @@ public class ConsoleUI {
 
   /**
    * Prints reassurans question and action argument.
-   * alt = 0: delete member  1: delete boat.
    */
-  public void printAreYouSure(int alt) {
-    String subject;
-    switch (alt) {
-      case 0:
-        subject = "you want to delete this member";
-        break;
-      case 1:
-        subject = "you want to delete this boat";
-        break;
-      default:
-        subject = "unknown";  
-        break;
-    }      
-    System.out.println("\nAre you sure you want to " + subject + "?");
+  public void printAreYouSure(action actionChoise, subject object) {
+    String subject = subjectToString(object);
+    String action = actionToString(actionChoise);
+        
+    System.out.println("\nAre you sure you want to " + action + " this " + subject + "?");
     System.out.println("1. No");
     System.out.println("2. Yes");
   }
