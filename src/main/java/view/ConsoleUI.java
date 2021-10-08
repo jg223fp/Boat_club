@@ -13,14 +13,14 @@ public class ConsoleUI {
   /**
    * Enum for different string options.
    */
-  public enum stringOptions {
+  public enum StringOptions {
     selectionToExit, selectionToBack, selection, memberIdToGoBack, Count
   }
 
   /**
    * Enum for different subject.
    */
-  public enum subject {
+  public enum Subject {
     boat, member, lenght, firtsName, lastName, newFirstName, newLastName, name, newName,
     type, Count
   }
@@ -28,7 +28,7 @@ public class ConsoleUI {
   /**
    * Enum for different actions.
    */
-  public enum action {
+  public enum Action {
     deleted, registred, changed, created, delete, Count
   }
 
@@ -46,14 +46,14 @@ public class ConsoleUI {
    */
   public void printHeader(String appName) {
     System.out.println("+-------------------------------------+");
-    System.out.format("|   Welcome to the %s   |\n", appName);
+    System.out.format("|   Welcome to the %s   |%n", appName);
     System.out.println("+-------------------------------------+");
   }
 
   /**
    * Converts subject to String.
    */
-  public String subjectToString(subject object) {
+  public String subjectToString(Subject object) {
     String subject;
     switch (object) {
       case firtsName:
@@ -96,7 +96,7 @@ public class ConsoleUI {
   /**
    * Converts string options to String.
    */
-  public String stringOptionsToString(stringOptions alt) {
+  public String stringOptionsToString(StringOptions alt) {
     String subject;
     switch (alt) {
       case selectionToExit:
@@ -121,7 +121,7 @@ public class ConsoleUI {
   /**
    * Converts subject to String.
    */
-  public String actionToString(action a) {
+  public String actionToString(Action a) {
     String action;
     switch (a) {
       case created:
@@ -160,12 +160,12 @@ public class ConsoleUI {
    * Collects the input from the user. Limit based on available choises. Prints
    * different ending based on type argument.
    */
-  public int collectUserChoice(int limit, stringOptions alt) { 
+  public int collectUserChoice(int limit, StringOptions alt) { 
     String subject = stringOptionsToString(alt);
     int userChoice = -1;
     while (userChoice < 0 || userChoice > limit) {
       try {
-        System.out.format("\nPlease enter %s: ", subject);
+        System.out.format("%nPlease enter %s: ", subject);
         userChoice = Integer.parseInt(console.nextLine());
         if (userChoice < 0 || userChoice > limit) {
           throw new NumberFormatException();
@@ -181,13 +181,13 @@ public class ConsoleUI {
   /**
    * Collects string. Prints type argument.
    */
-  public String collectString(subject alt) {
+  public String collectString(Subject alt) {
     String subject = subjectToString(alt);
       
     String input = null;
     while (input == null) {
       try {
-        System.out.format("\nPlease enter a %s: ", subject);
+        System.out.format("%nPlease enter a %s: ", subject);
         input = console.nextLine();
 
       } catch (Exception e) {
@@ -204,7 +204,7 @@ public class ConsoleUI {
     Double input = -1.2;
     while (input < 0) {
       try {
-        System.out.format("\nPlease enter the boat length: ");
+        System.out.format("%nPlease enter the boat length: ");
         input = Double.parseDouble(console.nextLine());
       } catch (NumberFormatException e) {
         System.out.println("Invalid input. Please try again.");
@@ -220,7 +220,7 @@ public class ConsoleUI {
     long input = -1;
     while (input < 0) {
       try { 
-        System.out.format("\nPlease enter personal number (10 digits): ");
+        System.out.format("%nPlease enter personal number (10 digits): ");
         input = Long.parseLong(console.nextLine());
       } catch (NumberFormatException e) {
         System.out.println("Invalid input. Please try again.");
@@ -232,17 +232,17 @@ public class ConsoleUI {
   /**
    * Prints a confirmation based on arguments.           
    */
-  public void confirmation(subject object, action actionChoise) {
+  public void confirmation(Subject object, Action actionChoise) {
     String subject = subjectToString(object);
     String action = actionToString(actionChoise);
-    System.out.format("\nThe %s was sucessfully %s.\n", subject, action);
+    System.out.format("%nThe %s was sucessfully %s.%n", subject, action);
   }
 
   /**
    * Prints information from a member object.
    */
   public void printMember(Member m) {
-    System.out.format("\nName: %s %s\n", m.getFirstName(), m.getLastName());
+    System.out.format("%nName: %s %s%n", m.getFirstName(), m.getLastName());
     System.out.println("MemberID: " + m.getMemberId());
     System.out.println("Personal number: " + m.getPersonalNumber());
     System.out.println("Number of boats: " + m.getNumberOfBoats());
@@ -253,13 +253,13 @@ public class ConsoleUI {
    */
   public void printCompactList(MemberRegistry memberReg) {
     try {
-      System.out.format("\n%-15s %-30s %-20s\n", "MemberID:", "Name:", "Number of boats:");
+      System.out.format("%n%-15s %-30s %-20s%n", "MemberID:", "Name:", "Number of boats:");
       for (Member m : memberReg.getMemberList()) {
         String firstName = m.getFirstName();
         String lastName = m.getLastName();
         int memberId = m.getMemberId();
         int numOfBoats = m.getNumberOfBoats();
-        System.out.format("%-15d %-30s %-20s\n", memberId, firstName + " " + lastName, numOfBoats);
+        System.out.format("%-15d %-30s %-20s%n", memberId, firstName + " " + lastName, numOfBoats);
       }
     } catch (Exception e) {
       System.out.println("Sorry, something went wrong. Error: " + e);
@@ -280,11 +280,11 @@ public class ConsoleUI {
    * Prints the boats from a member object.
    */
   public void printBoats(Member m) {
-    System.out.format("\n%-10s %-20s %-15s %-10s\n", "Number:", "Name:", "Lenght(m):", "Type:");
+    System.out.format("%n%-10s %-20s %-15s %-10s%n", "Number:", "Name:", "Lenght(m):", "Type:");
 
     int index = 1;
     for (Boat b : m.getBoatList()) {
-      System.out.format("%-10d %-20s %-15.1f %-10s\n", index, b.getName(), b.getLength(), b.getBoatType());
+      System.out.format("%-10d %-20s %-15.1f %-10s%n", index, b.getName(), b.getLength(), b.getBoatType());
       index++;
     }
     System.out.println();
@@ -304,14 +304,14 @@ public class ConsoleUI {
   public void printBoatTypes() {
     System.out.println("\nAvailable boat types:");
     for (int e = 0; e < Boat.BoatType.Count.ordinal(); e++) {
-      System.out.format("%d. %s\n", e, (Boat.BoatType.values()[e].toString()));
+      System.out.format("%d. %s%n", e, (Boat.BoatType.values()[e].toString()));
     }
   }
 
   /**
    * Prints reassurans question and action argument.
    */
-  public void printAreYouSure(action actionChoise, subject object) {
+  public void printAreYouSure(Action actionChoise, Subject object) {
     String subject = subjectToString(object);
     String action = actionToString(actionChoise);
         
@@ -322,19 +322,19 @@ public class ConsoleUI {
 
   /**
    * Prints a menu to show options for changing an object.
-   * alt = 0: member  1: boat.
+   * alt = subject.member or  subject.boat.
    */
-  public void printChangeMenu(int alt) {
+  public void printChangeMenu(Subject alt) {
     String one;
     String two;
     String three;
     switch (alt) {
-      case 0:    // member
+      case member:  
         one = "First name";
         two = "Last name";
         three = "Boats";
         break;
-      case 1:   // boat
+      case boat:  
         one = "Name";
         two = "Length";
         three = "Boat type";
