@@ -21,7 +21,7 @@ public class ConsoleUI {
    * Enum for different subject.
    */
   public enum Subject {
-    boat, member, lenght, firtsName, lastName, newFirstName, newLastName, name, newName,
+    boat, member, lenght, firstName, lastName, newFirstName, newLastName, name, newName,
     type, Count
   }
 
@@ -56,7 +56,7 @@ public class ConsoleUI {
   public String subjectToString(Subject object) {
     String subject;
     switch (object) {
-      case firtsName:
+      case firstName:
         subject = "first name";
         break;
       case lastName:
@@ -137,7 +137,7 @@ public class ConsoleUI {
         action = "deleted";
         break; 
       case delete: 
-        action = "deleted";
+        action = "delete";
         break;    
       default:
         action = "unknown";

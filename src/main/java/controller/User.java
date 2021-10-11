@@ -71,7 +71,7 @@ public class User {
    */
   private void createMember(MemberRegistry memberReg) {
     ConsoleUI ui = new ConsoleUI();
-    String firstName = ui.collectString(Subject.firtsName);
+    String firstName = ui.collectString(Subject.firstName);
     String lastName = ui.collectString(Subject.lastName);
     long personalNumber = 0;
 
@@ -166,7 +166,7 @@ public class User {
         case 1:
           String firstName = ui.collectString(Subject.newFirstName);
           m.setFirstName(firstName);
-          ui.confirmation(Subject.firtsName, Action.changed);
+          ui.confirmation(Subject.firstName, Action.changed);
           break;
         case 2:
           String lastName = ui.collectString(Subject.newLastName);

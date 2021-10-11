@@ -83,7 +83,7 @@ public class MemberRegistry implements DbInterface {
   }
 
   /**
-   * A method from the loadable interface. Loads all members and their boats.
+   * Overrides the interface method loadData. Loads all members and their boats.
    */
   @Override
   public void loadData() throws FileNotFoundException {

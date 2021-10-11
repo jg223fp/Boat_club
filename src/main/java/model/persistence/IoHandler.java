@@ -9,13 +9,13 @@ import model.domain.Member;
 import model.domain.MemberRegistry;
 
 /**
-* Handles the IO for model classes.
-*/
+ * Handles the IO for model classes.
+ */
 public class IoHandler {
 
   /**
-  * Loads members and puts them in a member registry.
-  */
+   * Loads members and puts them in a member registry.
+   */
   public void loadMembers(MemberRegistry memberReg) throws FileNotFoundException {
     File memberData = new File(System.getProperty("user.dir") + "/data/memberDB.txt");
     Scanner scan = new Scanner(memberData);
