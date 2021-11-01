@@ -2,6 +2,8 @@ package model.domain;
 
 import java.util.ArrayList;
 
+import model.domain.Boat.BoatType;
+
 /**
  * A class representing a member.
  */
@@ -52,7 +54,8 @@ public class Member extends Person {
   /**
    * Adds a boat object to a members boatlist.
    */
-  public void addBoat(Boat b) {
+  public void addBoat(String name, BoatType type, Double lenght) {
+    Boat b = new Boat(name, type, lenght);
     this.boats.add(b);
   }
 

@@ -26,9 +26,8 @@ public class modelTest {
   */
   @Test
   public void testRegisterNewBoat() {
-    Boat b = new Boat("Titanic", BoatType.Motorsailer, 8.5);
     Member m = new Member("Jonny", "Stål", 1234567890L, 1);
-    m.addBoat(b);
+    m.addBoat("Titanic", BoatType.Motorsailer, 8.5);
 
     assertTrue(m.getBoat(1) != null, "Boat was not added properly");
   }

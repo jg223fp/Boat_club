@@ -229,8 +229,7 @@ public class User {
     BoatType type = Boat.BoatType.values()[i]; // set variable value depending on user choise
 
     try {
-      Boat b = new Boat(name, type, lenght);
-      m.addBoat(b);
+      m.addBoat(name, type, lenght);
 
     } catch (NullPointerException e) {
       StringWriter sw = new StringWriter();

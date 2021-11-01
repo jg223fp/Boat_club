@@ -31,8 +31,8 @@ public class IoHandler {
         String name = member[index];
         BoatType boatType = Boat.BoatType.valueOf(member[index + 1]);
         double length = Double.parseDouble(member[index + 2]);
-        Boat b = new Boat(name, boatType, length);
-        m.addBoat(b);
+        //Boat b = new Boat(name, boatType, length);
+        m.addBoat(name, boatType, length);
         index += 3;
       }
     }
