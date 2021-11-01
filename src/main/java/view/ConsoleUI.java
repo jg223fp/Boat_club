@@ -251,10 +251,10 @@ public class ConsoleUI {
   /**
    * Prints a compact list of the members.
    */
-  public void printCompactList(MemberRegistry memberReg) {
+  public void printCompactList(Iterable<Member> members) {
     try {
       System.out.format("%n%-15s %-30s %-20s%n", "MemberID:", "Name:", "Number of boats:");
-      for (Member m : memberReg.getMemberList()) {
+      for (Member m : members) {
         String firstName = m.getFirstName();
         String lastName = m.getLastName();
         int memberId = m.getMemberId();

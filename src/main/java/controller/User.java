@@ -102,7 +102,7 @@ public class User {
   private void showCompactMemberList(MemberRegistry memberReg) {
     ConsoleUI ui = new ConsoleUI();
 
-    ui.printCompactList(memberReg);
+    ui.printCompactList(memberReg.getMemberList());
     int input = ui.collectUserChoice(memberReg.getNumberOfMembers(), StringOptions.memberIdToGoBack);
 
     while (input != 0) {
