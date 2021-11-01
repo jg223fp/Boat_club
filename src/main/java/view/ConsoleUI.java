@@ -3,7 +3,6 @@ package view;
 import java.util.Scanner;
 import model.domain.Boat;
 import model.domain.Member;
-import model.domain.MemberRegistry;
 
 /**
  * A class that interacts with the user of the app via text.
