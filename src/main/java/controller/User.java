@@ -8,6 +8,11 @@ import model.domain.Member;
 import model.domain.MemberRegistry;
 import view.ConsoleUI;
 import view.ConsoleUI.Action;
+import view.ConsoleUI.BoatOptionsMenu;
+import view.ConsoleUI.BoatOptionsMenu;
+import view.ConsoleUI.ChangeMemberMenu;
+import view.ConsoleUI.MainMenu;
+import view.ConsoleUI.MemberOptionsMenu;
 import view.ConsoleUI.StringOptions;
 import view.ConsoleUI.Subject;
 
@@ -45,19 +50,19 @@ public class User {
     boolean exit = false;
 
     while (!exit) {
-      ui.printMainMenu();
+      MainMenu userChoice = ui.printMainMenu();
 
-      switch (ui.collectUserChoice(3, StringOptions.selectionToExit)) {
-        case 0:
+      switch (userChoice) {
+        case exitMain:
           exit = true;
           break;
-        case 1:
+        case createMember:
           createMember(memberReg);
           break;
-        case 2:
+        case showVerboseList:
           showVerboseMemberList(memberReg);
           break;
-        case 3:
+        case showCompactList :
           showCompactMemberList(memberReg);
           break;
         default:
@@ -106,25 +111,25 @@ public class User {
     int input = ui.collectUserChoice(memberReg.getNumberOfMembers(), StringOptions.memberIdToGoBack);
 
     while (input != 0) {
-      ui.printMemberOptions();
+      MemberOptionsMenu userChoice = ui.printMemberOptions();
       Member m = memberReg.getMember(input); // fetch member
-      switch (ui.collectUserChoice(4, StringOptions.selectionToBack)) {
-        case 0:
+      switch (userChoice) {
+        case exitMemberOptions:
           input = 0;
           break;
-        case 1:
+        case viewMember:
           ui.printMember(m);
           if (m.getNumberOfBoats() > 0) {
             ui.printBoats(m);
           }
           break;
-        case 2:
+        case changeMember:
           changeMember(m);
           break;
-        case 3:
+        case registerBoat:
           registerBoat(m);
           break;
-        case 4:
+        case deleteMember:
           if (deleteMember(memberReg, input)) {
             input = 0;
           }
@@ -140,8 +145,8 @@ public class User {
    */
   private Boolean deleteMember(MemberRegistry memberReg, int memberId) {
     ConsoleUI ui = new ConsoleUI();
-    ui.printAreYouSure(Action.delete, Subject.member);
-    if (ui.collectUserChoice(2, StringOptions.selection) == 2) {
+    boolean userSure = ui.printAreYouSure(Action.delete, Subject.member);
+    if (userSure) {
       memberReg.deleteMember(memberId);
       ui.confirmation(Subject.member, Action.deleted);
       return true;
@@ -154,26 +159,26 @@ public class User {
    */
   private void changeMember(Member m) {
     ConsoleUI ui = new ConsoleUI();
-    int input = -1;
+    ChangeMemberMenu input = null;
 
-    while (input != 0) {
-      ui.printChangeMenu(Subject.member);
-      input = ui.collectUserChoice(3, StringOptions.selectionToBack);
+    while (input != ChangeMemberMenu.exitChangeMember) {
+      input = ui.printChangeMenu(Subject.member);
+      //input = ui.collectUserChoice(3, StringOptions.selectionToBack);
+
       switch (input) {
-        case 0:
-          input = 0;
+        case exitChangeMember:
           break;
-        case 1:
+        case firstName:
           String firstName = ui.collectString(Subject.newFirstName);
           m.setFirstName(firstName);
           ui.confirmation(Subject.firstName, Action.changed);
           break;
-        case 2:
+        case lastName:
           String lastName = ui.collectString(Subject.newLastName);
           m.setLastName(lastName);
           ui.confirmation(Subject.lastName, Action.changed);
           break;
-        case 3:
+        case boats:
           boatMenu(m);
           break;
         default:
@@ -193,18 +198,18 @@ public class User {
     int input = ui.collectUserChoice(m.getNumberOfBoats(), StringOptions.selectionToBack);
 
     while (input != 0) {
-      ui.printBoatOptions();
+      BoatOptionsMenu userChoice = ui.printBoatOptions();
       Boat b = m.getBoat(input);
-      switch (ui.collectUserChoice(2, StringOptions.selectionToBack)) {
-        case 0:
+      switch (userChoice) {
+        case exitBoatOptions:
           input = 0;
           break;
-        case 1:
+        case changeInfo:
           changeBoat(b);
           break;
-        case 2:
-          ui.printAreYouSure(Action.delete, Subject.boat);
-          if (ui.collectUserChoice(2, StringOptions.selectionToBack) == 2) {
+        case deleteBoat:
+          Boolean userSure = ui.printAreYouSure(Action.delete, Subject.boat);
+          if (userSure) {
             m.deleteBoat(input);
             ui.confirmation(Subject.boat, Action.deleted);
           }
@@ -247,26 +252,25 @@ public class User {
    */
   private void changeBoat(Boat b) {
     ConsoleUI ui = new ConsoleUI();
-    int input = -1;
+    ChangeMemberMenu input = null;
 
-    while (input != 0) {
-      ui.printChangeMenu(Subject.boat);
-      input = ui.collectUserChoice(3, StringOptions.selectionToBack);
+    while (input != ChangeMemberMenu.exitChangeMember) {
+      input = ui.printChangeMenu(Subject.boat);
+
       switch (input) {
-        case 0:
-          input = 0;
+        case exitChangeMember:
           break;
-        case 1:
+        case name:
           String name = ui.collectString(Subject.newName);
           b.setName(name);
           ui.confirmation(Subject.name, Action.changed);
           break;
-        case 2:
+        case length:
           Double length = ui.collectBoatLength();
           b.setLength(length);
           ui.confirmation(Subject.lenght, Action.changed);
           break;
-        case 3:
+        case boatType:
           changeBoatType(b);
           break;
         default:
