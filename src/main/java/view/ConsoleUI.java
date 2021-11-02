@@ -1,6 +1,9 @@
 package view;
 
 import java.util.Scanner;
+
+import javax.swing.SingleSelectionModel;
+
 import model.domain.Boat;
 import model.domain.Member;
 
@@ -29,6 +32,25 @@ public class ConsoleUI {
    */
   public enum Action {
     deleted, registred, changed, created, delete, Count
+  }
+
+  /**
+   * Enum for main menu options.
+   */
+  public enum MainMenu {
+    createMember, showCompactList, showVerboseList, exitMain, Count
+  }
+
+  public enum MemberOptionsMenu {
+    viewMember, changeMember, registerBoat, deleteMember, exitMemberOptions, Count
+  }
+
+  public enum ChangeMemberMenu {
+    firstName, lastName, boats, name, length, boatType, exitChangeMember, Count
+  }
+
+  public enum BoatOptionsMenu {
+    changeInfo, deleteBoat, exitBoatOptions, Count
   }
 
   private Scanner console;
@@ -148,11 +170,27 @@ public class ConsoleUI {
   /**
    * Prints the main menu.
    */
-  public void printMainMenu() {
+  public MainMenu printMainMenu() {
     System.out.println("\nMain Menu");
     System.out.println("1. Create new member");
     System.out.println("2. Show verbose member list");
     System.out.println("3. Show compact member list and change members");
+
+    int limit = MainMenu.values().length - 2;
+
+    int selection = collectUserChoice(limit, StringOptions.selectionToExit);
+    switch (selection) {
+      case 0:
+        return MainMenu.exitMain;
+      case 1:
+        return MainMenu.createMember;  
+      case 2:
+        return MainMenu.showVerboseList;
+      case 3:
+        return MainMenu.showCompactList;
+      default:
+        return MainMenu.exitMain;
+    }
   }
 
   /**
@@ -268,12 +306,31 @@ public class ConsoleUI {
   /**
    * Prints a menu of the available actions for a member object.
    */
-  public void printMemberOptions() {
+  public MemberOptionsMenu printMemberOptions() {
     System.out.println("\n1. View member information");
     System.out.println("2. Change member information");
     System.out.println("3. Register new boat");
     System.out.println("4. Delete member");
+    
+    int limit = MemberOptionsMenu.values().length - 2;
+
+    int selection = collectUserChoice(limit, StringOptions.selectionToExit);
+    switch (selection) {
+      case 0:
+        return MemberOptionsMenu.exitMemberOptions;
+      case 1:
+        return MemberOptionsMenu.viewMember; 
+      case 2:
+        return MemberOptionsMenu.changeMember;
+      case 3:
+        return MemberOptionsMenu.registerBoat;
+      case 4:
+        return MemberOptionsMenu.deleteMember;  
+      default:
+        return MemberOptionsMenu.exitMemberOptions;
+    }
   }
+  
 
   /**
    * Prints the boats from a member object.
@@ -292,9 +349,23 @@ public class ConsoleUI {
   /**
    * Prints the available actions for a boat object.
    */
-  public void printBoatOptions() {
+  public BoatOptionsMenu printBoatOptions() {
     System.out.println("\n1. Change boat information");
     System.out.println("2. Delete boat");
+    
+    int limit = BoatOptionsMenu.values().length - 2;
+
+    int selection = collectUserChoice(limit, StringOptions.selectionToExit);
+    switch (selection) {
+      case 0:
+        return BoatOptionsMenu.exitBoatOptions;
+      case 1:
+        return BoatOptionsMenu.changeInfo;
+      case 2:
+        return BoatOptionsMenu.deleteBoat;
+      default:
+        return BoatOptionsMenu.exitBoatOptions;
+    }      
   }
 
   /**
@@ -310,23 +381,33 @@ public class ConsoleUI {
   /**
    * Prints reassurans question and action argument.
    */
-  public void printAreYouSure(Action actionChoise, Subject object) {
+  public boolean printAreYouSure(Action actionChoise, Subject object) {
     String subject = subjectToString(object);
     String action = actionToString(actionChoise);
         
     System.out.println("\nAre you sure you want to " + action + " this " + subject + "?");
     System.out.println("1. No");
     System.out.println("2. Yes");
+
+    int selection = collectUserChoice(2, StringOptions.selectionToBack);
+    if (selection == 1) {
+      return false;
+    } else if (selection == 2) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
    * Prints a menu to show options for changing an object.
    * alt = subject.member or  subject.boat.
    */
-  public void printChangeMenu(Subject alt) {
+  public ChangeMemberMenu printChangeMenu(Subject alt) {
     String one;
     String two;
     String three;
+    
     switch (alt) {
       case member:  
         one = "First name";
@@ -348,6 +429,39 @@ public class ConsoleUI {
     System.out.println("1. " + one);
     System.out.println("2. " + two);
     System.out.println("3. " + three);
+
+    int limit = ChangeMemberMenu.values().length - 2;
+    
+    int selection = collectUserChoice(limit, StringOptions.selectionToExit);
+    
+    if(alt == Subject.member) {
+      switch (selection) {
+        case 0:
+          return ChangeMemberMenu.exitChangeMember;
+        case 1:
+          return ChangeMemberMenu.firstName; 
+        case 2:
+          return ChangeMemberMenu.lastName;
+        case 3:
+          return ChangeMemberMenu.boats;
+        default:
+          return ChangeMemberMenu.exitChangeMember;
+      }
+    } else {
+      switch (selection) {
+        case 0:
+          return ChangeMemberMenu.exitChangeMember;
+        case 1:
+          return ChangeMemberMenu.name;
+        case 2:
+          return ChangeMemberMenu.length;
+        case 3:
+          return ChangeMemberMenu.boatType; 
+        default:
+          return ChangeMemberMenu.exitChangeMember;
+      }
+    }  
+      
   }
 
   /**
