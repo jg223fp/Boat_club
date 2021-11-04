@@ -9,7 +9,6 @@ import model.domain.MemberRegistry;
 import view.ConsoleUI;
 import view.ConsoleUI.Action;
 import view.ConsoleUI.BoatOptionsMenu;
-import view.ConsoleUI.BoatOptionsMenu;
 import view.ConsoleUI.ChangeMemberMenu;
 import view.ConsoleUI.MainMenu;
 import view.ConsoleUI.MemberOptionsMenu;
