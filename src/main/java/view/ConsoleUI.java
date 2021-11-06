@@ -41,14 +41,23 @@ public class ConsoleUI {
     createMember, showCompactList, showVerboseList, exitMain, Count
   }
 
+  /**
+   * Enum for member option smenu.
+   */
   public enum MemberOptionsMenu {
     viewMember, changeMember, registerBoat, deleteMember, exitMemberOptions, Count
   }
 
+  /**
+   * Enum for change member menu.
+   */
   public enum ChangeMemberMenu {
     firstName, lastName, boats, name, length, boatType, exitChangeMember, Count
   }
 
+  /**
+   * Enum for boot options menu.
+   */
   public enum BoatOptionsMenu {
     changeInfo, deleteBoat, exitBoatOptions, Count
   }
@@ -434,7 +443,7 @@ public class ConsoleUI {
     
     int selection = collectUserChoice(limit, StringOptions.selectionToExit);
     
-    if(alt == Subject.member) {
+    if (alt == Subject.member) {
       switch (selection) {
         case 0:
           return ChangeMemberMenu.exitChangeMember;
