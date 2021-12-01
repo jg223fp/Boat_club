@@ -1,20 +1,23 @@
 package controller;
 
+import model.domain.MemberRegistry;
+
 /**
- * Responsible for staring the application.
+ * A class to initiate the application.
  */
 public class App {
-  /**
-   * Application starting point.
 
-   * @param args command line arguments.
+  /**
+   * Initiates app.
    */
   public static void main(String[] args) {
-    // adapt to start the application in your way
-    model.Simple m = new model.Simple();
-    Simple c = new Simple();
-    view.Simple v = new view.Simple();
 
-    c.doSomethingSimple(m, v);
+    String appName = "The Jolly Pirate";
+
+    MemberRegistry memberReg = new MemberRegistry();
+
+    User user = new User();
+    user.initiateData(memberReg);    // loads stored data
+    user.runApp(memberReg, appName); // start app
   }
 }
