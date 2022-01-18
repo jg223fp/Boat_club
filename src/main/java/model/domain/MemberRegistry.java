@@ -23,9 +23,9 @@ public class MemberRegistry implements DbInterface {
   /**
    * Creates a new member and ads to member registry.
    */
-  public Member addMember(String firstName, String lastName, long personalNumber) {
+  public Member addMember(String firstName, String lastName, long personalNumber, String password) {
     int memberId = generateMemberId();
-    Member m = new Member(firstName, lastName, personalNumber, memberId);
+    Member m = new Member(firstName, lastName, personalNumber, memberId, password);
     members.add(m);
     return m;
   }

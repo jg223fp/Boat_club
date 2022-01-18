@@ -24,7 +24,7 @@ public class ConsoleUI {
    */
   public enum Subject {
     boat, member, lenght, firstName, lastName, newFirstName, newLastName, name, newName,
-    type, Count
+    type, password, Count
   }
 
   /**
@@ -115,7 +115,10 @@ public class ConsoleUI {
         break;
       case type:
         subject = "type";
-        break;  
+        break;
+      case password:
+        subject = "password";
+        break;    
       default:
         subject = "unknown";
         break;  

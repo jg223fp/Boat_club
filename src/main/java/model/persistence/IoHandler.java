@@ -25,8 +25,8 @@ public class IoHandler {
       String[] member = line.split(",");
 
       // creates member and returns the member id
-      Member m = memberReg.addMember(member[0], member[1], Long.parseLong(member[2]));
-      int index = 3; // data for first boat.
+      Member m = memberReg.addMember(member[0], member[1], Long.parseLong(member[2]), member[3]);
+      int index = 4; // data for first boat.
       while (index < member.length) { // scan boats data on member line.
         String name = member[index];
         BoatType boatType = Boat.BoatType.valueOf(member[index + 1]);

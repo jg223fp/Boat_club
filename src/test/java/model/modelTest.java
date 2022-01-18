@@ -15,7 +15,7 @@ public class modelTest {
   @Test
   public void testRegisterNewMember() {
     MemberRegistry memreg = new MemberRegistry();
-    Member m = memreg.addMember("Jonny", "Stål", 1234567890L);
+    Member m = memreg.addMember("Jonny", "Stål", 1234567890L, "vatten123");
     int memberId = m.getMemberId();
 
     assertTrue(memreg.getMember(memberId) != null, "Member was not added properly");
@@ -26,7 +26,7 @@ public class modelTest {
   */
   @Test
   public void testRegisterNewBoat() {
-    Member m = new Member("Jonny", "Stål", 1234567890L, 1);
+    Member m = new Member("Jonny", "Stål", 1234567890L, 1,"ost");
     m.addBoat("Titanic", BoatType.Motorsailer, 8.5);
 
     assertTrue(m.getBoat(1) != null, "Boat was not added properly");

@@ -10,16 +10,18 @@ public class Member extends Person {
 
   private Integer memberId;
   private ArrayList<Boat> boats;
+  private String password;
 
   /**
    * Class constructor.
    */
-  public Member(String firstName, String lastName, long personalNumber, int memberId) {
+  public Member(String firstName, String lastName, long personalNumber, int memberId, String password) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.personalNumber = personalNumber;
     this.memberId = memberId;
     this.boats = new ArrayList<Boat>();
+    this.password = password;
   }
 
   /**

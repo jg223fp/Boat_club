@@ -77,12 +77,13 @@ public class User {
     ConsoleUI ui = new ConsoleUI();
     String firstName = ui.collectString(Subject.firstName);
     String lastName = ui.collectString(Subject.lastName);
+    String pwd = ui.collectString(Subject.password);
     long personalNumber = 0;
 
     while (personalNumber < 1000000000L || personalNumber > 9999999999L) {
       personalNumber = ui.collectPersonalNumber();
     }
-    memberReg.addMember(firstName, lastName, personalNumber);
+    memberReg.addMember(firstName, lastName, personalNumber,pwd);
 
     ui.confirmation(Subject.member, Action.registred);
   }
