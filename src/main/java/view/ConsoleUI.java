@@ -21,7 +21,7 @@ public class ConsoleUI {
    */
   public enum Subject {
     boat, member, lenght, firstName, lastName, newFirstName, newLastName, name, newName,
-    type, password, Count
+    type, password, username, Count
   }
 
   /**
@@ -35,7 +35,7 @@ public class ConsoleUI {
    * Enum for main menu options.
    */
   public enum MainMenu {
-    createMember, showCompactList, showVerboseList, exitMain, Count
+    createMember, showCompactList, showVerboseList, exitMain, login, Count
   }
 
   /**
@@ -181,7 +181,7 @@ public class ConsoleUI {
    */
   public MainMenu printMainMenu() {
     System.out.println("\nMain Menu");
-    System.out.println("1. Create new member");
+    System.out.println("1. Login");
     System.out.println("2. Show verbose member list");
     System.out.println("3. Show compact member list and change members");
 
@@ -192,7 +192,7 @@ public class ConsoleUI {
       case 0:
         return MainMenu.exitMain;
       case 1:
-        return MainMenu.createMember;  
+        return MainMenu.login;  
       case 2:
         return MainMenu.showVerboseList;
       case 3:
@@ -223,6 +223,23 @@ public class ConsoleUI {
     }
     return userChoice;
   }
+
+  
+  /**
+   * Collects string. Prints type argument.
+   */
+  public Integer collectInt(Subject alt) {
+    int input = -1;
+    while (input < 0) {
+      try { 
+        System.out.format("%nPlease enter member id: ");
+        input = Integer.parseInt(console.nextLine());
+      } catch (NumberFormatException e) {
+        System.out.println("Invalid input. Please try again.");
+      }
+    }
+    return input;
+  }  
 
   /**
    * Collects string. Prints type argument.

@@ -19,7 +19,8 @@ import view.ConsoleUI.Subject;
  * "Main" class. It is in this class the program is running.
  */
 public class User {
-
+  private Boolean admin = false;
+  private Member loggedInUser = null;
   /**
    * Fetches stored data and puts in the memberregistry.
    */
@@ -55,8 +56,8 @@ public class User {
         case exitMain:
           exit = true;
           break;
-        case createMember:
-          createMember(memberReg);
+        case login:
+          login(memberReg);
           break;
         case showVerboseList:
           showVerboseMemberList(memberReg);
@@ -68,6 +69,22 @@ public class User {
           break;
       }
     }
+  }
+
+  
+   /**
+   * Prompt for login cridentials and logs user in.
+   */
+  private void login(MemberRegistry memberReg) {
+    ConsoleUI ui = new ConsoleUI();
+    int userName = ui.collectInt(Subject.username); 
+    String pwd = ui.collectString(Subject.password);
+
+    // YOU ARE HERE !!!!
+    //1. find and fecth member
+    //2. compare passwords
+    
+   // createMember(memberReg);
   }
 
   /**
