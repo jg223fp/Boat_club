@@ -1,9 +1,6 @@
 package view;
 
 import java.util.Scanner;
-
-import javax.swing.SingleSelectionModel;
-
 import model.domain.Boat;
 import model.domain.Member;
 
