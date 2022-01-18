@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'checkstyle'
-    id "com.github.spotbugs" version "4.6.0"
+    id "com.github.spotbugs" version "5.0.0"
     id "application"
 }
 
@@ -10,12 +10,12 @@ spotbugsMain {
     showStackTraces = false
     reports {
         html {
-            enabled = false
+            enabled = true
             destination = file("$buildDir/reports/spotbugs/main/spotbugs.html")
             //stylesheet = 'fancy-hist.xsl'
         }
         xml {
-            enabled = true
+            enabled = false
             destination = file("$buildDir/reports/spotbugs/spotbugs.xml")
         }
     }
