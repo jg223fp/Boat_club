@@ -2,7 +2,6 @@ package model;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import model.domain.Boat;
 import model.domain.Boat.BoatType;
 import model.domain.Member;
 import model.domain.MemberRegistry;
